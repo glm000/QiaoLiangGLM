@@ -1,0 +1,90 @@
+﻿@model JiYiTunnelSystem.Dto.UserDto
+
+@{
+    ViewBag.Title = "用户信息";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 mg-b-20">
+                <div class="inbox-left-sd">
+                    <div class="compose-ml"><a class="btn">用户中心</a></div>
+                    <div class="inbox-status">
+                        <ul class="inbox-st-nav">
+                            <li><a href=@Url.Action("UserInformation","User",new { type="0"})><i class="notika-icon notika-form"></i>用户信息</a></li>
+                            <li><a href=@Url.Action("ChangePassword","User")><i class="notika-icon notika-edit"></i>修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd">
+                        <h2>@ViewBag.Title</h2>
+                    </div>
+                    <div>
+                        <div class="form-example-int form-horizental">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "hrzn-fm" })
+                                    </div>
+                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = true } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "hrzn-fm" })
+                                    </div>
+                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = true } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "hrzn-fm" })
+                                    </div>
+                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = true } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int form-horizental">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                        @Html.LabelFor(model => model.CreateTime, htmlAttributes: new { @class = "hrzn-fm" })
+                                    </div>
+                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="nk-int-st">
+                                            @Html.EditorFor(model => model.CreateTime, new { htmlAttributes = new { @class = "form-control input-sm", @readonly = true,@type="text" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

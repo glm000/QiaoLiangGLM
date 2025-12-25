@@ -1,0 +1,90 @@
+﻿@model JiYiTunnelSystem.MVCSite.Models.User.LoginViewModel
+
+@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+@using (Html.BeginForm("Login","User"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group mg-b-40">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label" })
+            <div class="control-txt">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+            <div class="control-txt">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="check-group">
+                @Html.EditorFor(model => model.RemeberMe)
+                @Html.LabelFor(model => model.RemeberMe, htmlAttributes: new { @class = "check-label" })
+                <label class="forget-lable">忘记密码?</label>
+                @Html.ActionLink("找回密码", "Retrieve", null, htmlAttributes: new { @class = "forget-a" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <input type="button" onclick="checkAll(this.form)" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录" class="btn btn-success form-btn" />
+            </div>
+            <div class="register-group">
+                <label>没有账号?</label>
+                @Html.ActionLink("立即注册", "Register", null, htmlAttributes: new { @class = "" })
+            </div>
+        </div>
+    </div>
+}
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/dialog")
+    <script>
+        function checkAll(obj) {
+            var phone = document.getElementById('Phone');
+            var pwd = document.getElementById('Password');
+            if (phone.value == "") {
+                showMessage("手机号码不能为空");
+            }
+            else if (!(/^1\d{10}$/).test(phone.value)) {
+                showMessage("请输入正确的手机号码");
+            }
+            else if (pwd.value == "") {
+                showMessage("密码不能为空");
+            }
+            else if (!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{6,10}$/).test(pwd.value)) {
+                showMessage("密码格式错误");
+            }
+            else {
+                obj.submit();
+            }
+        }
+
+        function showMessage(err) {
+            swal.fire({
+                title: err,
+                icon: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonColor: "#00C292",
+                cancelButtonText: "确认",
+            }).then(function (isConfirm) {
+                if (isConfirm.value) {
+                }
+            }).catch({
+            });
+        }
+    </script>
+}

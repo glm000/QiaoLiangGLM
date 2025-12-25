@@ -1,0 +1,3 @@
+﻿@model IEnumerable<JiYiTunnelSystem.Dto.SectionDto>
+
+@Html.DropDownList("sectionSelect", new SelectList(Model, "Id", "SectionNum"), new { @class = "selectpicker", @onchange = "changeSection(this.value)" })

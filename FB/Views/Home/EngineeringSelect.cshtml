@@ -1,0 +1,3 @@
+﻿@model IEnumerable<JiYiTunnelSystem.Dto.EngineeringDto>
+
+@Html.DropDownList("engineeringSelect",new SelectList(Model,"Id","Name"),new { @class="selectpicker",@onchange="changeEngineering(this.value)"})

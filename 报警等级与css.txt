@@ -1,0 +1,47 @@
+<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="inbox-left-sd" id="alarm_area">
+                    <h2>告警等级</h2>
+                    <div class="mg-t-30 btn-alarm">
+                        <button class="btn btn-success notika-btn-success waves-effect">正常</button>
+                        <span class="btn-alarm-tip">一级&nbsp;&nbsp;运行正常</span>
+                    </div>
+                    <div class="mg-t-15 btn-alarm">
+                        <button class="btn btn-warning notika-btn-warning waves-effect">良好</button>
+                        <span class="btn-alarm-tip">二级&nbsp;&nbsp;运行良好</span>
+                    </div>
+                    <div class="mg-t-15 btn-alarm">
+                        <button class="btn btn-deeporange notika-btn-deeporange waves-effect">预警</button>
+                        <span class="btn-alarm-tip">三级&nbsp;&nbsp;运行异常</span>
+                    </div>
+                    <div class="mg-t-15 btn-alarm">
+                        <button class="btn btn-danger notika-btn-danger waves-effect">危险</button>
+                        <span class="btn-alarm-tip">四级&nbsp;&nbsp;危险警告</span>
+                    </div>
+                </div>
+            </div>
+
+
+.btn-alarm{
+    text-align:center
+}
+.btn-alarm button{
+    color:transparent;
+}
+.btn-deeporange{
+    width:52px;
+    height:32px;
+    border-radius:2px
+}
+.btn-deeporange:hover {
+    color: #fff;
+}
+.btn-deeporange:focus {
+    color: #fff;
+    outline:none
+}
+
+.btn-alarm-tip{
+    color:#fff;
+    font-size:16px;
+    margin:5px 0 0 30px
+}

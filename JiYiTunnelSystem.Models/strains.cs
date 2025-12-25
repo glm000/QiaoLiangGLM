@@ -1,0 +1,38 @@
+namespace JiYiTunnelSystem.Models
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("jiyitunnelsystem.strains")]
+    public partial class strains:BaseEntity
+    {
+        
+
+        public long SectionId { get; set; }
+
+        public decimal? Data1 { get; set; }
+
+        public decimal? Data2 { get; set; }
+
+        public decimal? Data3 { get; set; }
+
+        public decimal? Data4 { get; set; }
+
+        public decimal? Data5 { get; set; }
+
+        public decimal? Data6 { get; set; }
+
+        public decimal? Data7 { get; set; }
+
+        public decimal? Data8 { get; set; }
+
+        public decimal? Data9 { get; set; }
+
+        
+
+        public virtual sections sections { get; set; }
+    }
+}

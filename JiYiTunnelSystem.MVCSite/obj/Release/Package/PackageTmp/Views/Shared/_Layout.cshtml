@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>集义隧道通道监测平台</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @WebReportGlobals.Scripts()
+    @WebReportGlobals.Styles()
+    @RenderSection("head", false)
+</head>
+<body>
+    <div class="header-top-area">
+        <div class="container">
+            <div class="row">
+                @*<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="logo-area">
+                        <a href="#"><img style="height:50px;position:absolute;top:6px;" src="~/picture/greenlocation.png" /></a>
+                    </div>
+                </div>*@
+                <div class="col-lg-3 col-md-3"></div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <h2 class="system-title">集义隧道通道监测平台</h2>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="header-top-menu">
+                        <ul class="nav navbar-nav notika-top-nav">
+                            <li class="nav-item dropdown">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+                                   class="navbar-link dropdown-toggle">
+                                    User Information
+                                    &nbsp;&nbsp;<span><i class="glyphicon glyphicon-user"></i></span>
+                                </a>
+                                <div role="menu" class="dropdown-menu message-dd animated zoomIn">
+                                    <div class="hd-mg-tt"><h2></h2></div>
+                                    <div class="hd-message-info">
+                                        <a href=@Url.Action("UserInformation","User")>
+                                            <div class="hd-message-ctn"><h2>个人中心</h2></div>
+                                        </a>
+                                    </div>
+                                    <div class="hd-message-info">
+                                        <a href=@Url.Action("ExitLogin","User")>
+                                            <div class="hd-message-ctn"><h2>退出系统</h2></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul class="mobile-menu-nav">
+                                <li><a href=@Url.Action("Index","Home")><i class="notika-icon notika-house"></i>主页</a></li>
+                                <li><a href=@Url.Action("VibrationListBySection","Home")><i class="notika-icon notika-edit"></i>数据管理</a></li>
+                                <li><a href=@Url.Action("SensorList","Home")><i class="notika-icon notika-windows"></i>设备管理</a></li>
+                                <li><a href=@Url.Action("LogList","Home")><i class="notika-icon notika-menus"></i>日志管理</a></li>
+                                <li><a href=@Url.Action("AlarmLogList","Home")><i class="notika-icon notika-alarm"></i>报警管理</a></li>
+                                <li><a href=@Url.Action("UserInformation","User")><i class="notika-icon notika-support"></i>个人中心</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-menu-area mg-tb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
+                        <li><a href=@Url.Action("Index","Home")><i class="notika-icon notika-house"></i>主页</a></li>
+                        <li><a href=@Url.Action("StrainListBySection","Home")><i class="notika-icon notika-edit"></i>数据管理</a></li>
+                        <li><a href=@Url.Action("SensorList","Home")><i class="notika-icon notika-windows"></i>设备管理</a></li>
+                        <li><a href=@Url.Action("LogList","Home")><i class="notika-icon notika-menus"></i>日志管理</a></li>
+                        @if (int.Parse(Session["authority"].ToString()) >= 1)
+                        {
+                            <li><a href=@Url.Action("AlarmLogList","Home")><i class="notika-icon notika-alarm"></i>报警管理</a></li>
+                            <li><a href=@Url.Action("UserList","Home")><i class="notika-icon notika-alarm"></i>用户管理</a></li>
+                        }
+                        <li><a href=@Url.Action("FastReport","Home")><i class="notika-icon notika-form"></i>报表中心</a></li>
+                        <li><a href=@Url.Action("UserInformation","User")><i class="notika-icon notika-support"></i>个人中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mg-t-30 mg-b-50">
+        @RenderBody()
+    </div>
+
+    <footer class="footer-copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer-copy-right">
+                        <p>
+                            
+                            <a target="_blank" href="http://beian.miit.gov.cn">网站备案号：晋ICP备2021009942号</a>@*http://sc.chinaz.com/moban/*@
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/main")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

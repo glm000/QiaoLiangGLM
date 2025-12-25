@@ -1,0 +1,49 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<JiYiTunnelSystem.Dto.UserDto>
+
+@{
+    ViewBag.Title = "联系人设置";
+}
+
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            @{Html.RenderPartial("_PartialAlarm");}
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 mg-b-20">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd">
+                        <h2>@ViewBag.Title<span class="pull-right alarm-user">添加联系人</span></h2>
+                    </div>
+                    @using (Ajax.BeginForm("AlarmUserSetting", null, new AjaxOptions { UpdateTargetId = "tableData" }, new { @id = "alarmForm" }))
+                    {
+                        @Html.Hidden("alarm", "1")
+                    }
+                    <div class="table-responsive data-list tb-txt">
+                        <div id="tableData">
+                            @Html.Partial("_UserListByAlarm", Model)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+
+@section scripts{
+    @{Html.RegisterMvcPagerScriptResource();}
+    @Scripts.Render("~/bundles/ajax")
+    @Scripts.Render("~/bundles/dialog")
+
+    <script>
+        $('.alarm-user').click(function () {
+            $('#alarm').val(0);
+            $('#alarmForm').submit();
+        })
+    </script>
+}

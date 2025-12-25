@@ -1,0 +1,346 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<JiYiTunnelSystem.Dto.SensorDto>
+
+@{
+    ViewBag.Title = "设备列表";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 mg-b-20">
+                <div class="inbox-left-sd">
+                    <div class="compose-ml"><a class="btn">设备中心</a></div>
+                    <div class="inbox-status">
+                        <ul class="inbox-st-nav">
+                            <li><a href=@Url.Action("SensorList","Home",new { type="0"})><i class="notika-icon notika-form"></i>设备列表</a></li>
+                            <li><a href=@Url.Action("CreateSensor","Home")><i class="notika-icon notika-plus-symbol"></i>添加设备</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 mg-b-20">
+                <div class="form-element-list">
+                    @using (Html.BeginForm("SensorList", "Home", FormMethod.Get, new { @id = "search" }))
+                    {
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-4">
+                                <span class="tb-select-txt">竖井:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    @Html.DropDownList("shaftSelect", new SelectList(ViewBag.Shafts, "Id", "Name", ViewBag.ShaftSelect), new { @class = "selectpicker", @onchange = "changeShaft(this.value)" })
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-5">
+                                <span class="tb-select-txt">部位:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    @Html.DropDownList("engSelect", new SelectList(ViewBag.Engineerings, "Id", "Name", ViewBag.EngSelect), new { @class = "selectpicker", @onchange = "changeEngineering(this.value)" })
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-4">
+                                <span class="tb-select-txt">截面:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    <div id="sectionList">
+                                        @Html.DropDownList("sectionSelect", new SelectList(ViewBag.Sections, "Id", "SectionNum", ViewBag.SectionSelect), new { @class = "selectpicker", @onchange = "changeSection(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-4">
+                                <span class="tb-select-txt">类型:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    <div id="typeList">
+                                        @Html.DropDownList("typeSelect", new SelectList(ViewBag.Types, "Id", "Name", ViewBag.TypeSelect), new { @class = "selectpicker", @onchange = "changeType(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="div_btn" class="col-lg-1 col-md-2 col-sm-2 col-xs-12 btn-xs" style="display:none">
+                                <input id="btn_setvalue" type="button" class="btn btn-success" onclick="setValue()" value="一键校准" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd">
+                        <h2>@ViewBag.Title<span class="pull-right">总计:@ViewBag.TotalCount /在线:@ViewBag.OnlineCount</span></h2>
+                    </div>
+                    <div class="table-responsive data-list tb-txt">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Shaft)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.EngName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SectionNum)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SensorNum)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SensorType)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.State)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LatestData)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LatestTime)
+                                    </th>
+                                    @if (int.Parse(Session["authority"].ToString()) >=1)
+                                    {
+                                        <th>报警</th>
+                                    }
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Shaft)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EngName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SectionNum)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SensorNum)
+                                        </td>
+                                        <td>
+                                            @if (item.SensorType == "YB")
+                                            {@Html.DisplayName("应变")}
+                                        else if (item.SensorType == "WY")
+                                        {@Html.DisplayName("位移") }
+                                    else if (item.SensorType == "ZD")
+                                    { @Html.DisplayName("振动")}
+                                else if (item.SensorType == "YL")
+                                { @Html.DisplayName("压力")}
+                            else if (item.SensorType == "GJ")
+                            { @Html.DisplayName("钢筋应力")}
+                                        </td>
+                                        <td>
+                                            @if (item.State)
+                                            {@Html.DisplayName("在线");
+                                        }
+                                        else
+                                        { @Html.DisplayName("离线");
+                                    }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LatestData)
+                                            @if (!string.IsNullOrEmpty(item.LatestData.ToString()))
+                                            {
+                                                if (item.SensorType == "YB")
+                                                {@Html.DisplayName(" ×10ˉ⁶")}
+                                            else if (item.SensorType == "WY")
+                                            {@Html.DisplayName(" mm") }
+                                        else if (item.SensorType == "ZD")
+                                        { @Html.DisplayName(" mm/s")}
+                                    else if (item.SensorType == "YL")
+                                    { @Html.DisplayName(" Mpa")}
+                                else if (item.SensorType == "GJ")
+                                { @Html.DisplayName(" MPa")}
+                        }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LatestTime)
+                                        </td>
+                                        @if(int.Parse(Session["authority"].ToString()) >= 1)
+                                        {
+                                        <td>
+                                            <div class="toggle-select-act fm-cmp-mg">
+                                                <div class="nk-toggle-switch">
+                                                    @if (@item.IsAlarm == 0)
+                                                    {
+                                                        <input id=@item.Id type="checkbox" class="chk" value="@item.Id" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input id=@item.Id type="checkbox" checked="checked" class="chk" value="@item.Id" />
+                                                    }
+                                                    <label for=@item.Id class="ts-helper"></label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        }
+                                        <td>
+                                            @Html.ActionLink("编辑", "EditSensor", new { id = item.Id, url = Request.RawUrl }) |
+                                            @*<a href="#" id="@item.Id" class="delete">删除</a>*@
+                                        </td>
+                                    </tr>
+                                }
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="11">
+                                            <nav>
+                                                @Html.Pager(Model, new PagerOptions {
+                                               PageIndexParameterName = "pageIndex",ContainerTagName = "ul", CssClass = "pagination",
+                                               CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+                                               DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+                                               PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager",
+                                               RouteValues=new RouteValueDictionary { { "shaftSelect",ViewBag.ShaftSelect},{ "engSelect",ViewBag.EngSelect},
+                                                   { "sectionSelect",ViewBag.SectionSelect} }
+                                           })
+                                            </nav>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        }
+                        else
+                        { <span class="tb-err-txt">无数据</span>}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/dialog")
+    <script>
+        {
+            window.shaft = '0';
+        }
+
+        window.onload = function () {
+            var secId = document.getElementById('sectionSelect').value;
+            if (secId == 0) {
+                var type = document.getElementById('typeSelect').value;
+                if (type == "WY" || type == "YB") {
+                    var engId = document.getElementById('engSelect').value;
+                    if (engId == 4 || engId == 3) {
+                        $('#div_btn').show();
+                    }
+                }
+            }
+        }
+
+        function setValue() {
+            var type = document.getElementById('typeSelect').value;
+            var engId = document.getElementById('engSelect').value;
+            var shaft = document.getElementById('shaftSelect').value;
+            $.ajax({
+                url: '/Home/SetAllValue',
+                type: 'post',
+                data: {
+                    engId: engId,
+                    shaft: shaft,
+                    type: type
+                }
+            }).done(function (data) {
+                if (data.res == "ok") {
+                    swal.fire({
+                        title: "校准成功!",
+                        icon: "success",
+                        showCancelButton: false,
+                        confirmButtonText: "Yes",
+                        cancelButtonText: "No",
+                        confirmButtonColor: "#00C292"
+                    }).then(function () {
+                    }).catch()
+                }
+                else {
+                    swal.fire({
+                        title: "校准失败!",
+                        icon: "warning",
+                        showCancelButton: false,
+                        confirmButtonText: "Yes",
+                        cancelButtonText: "No",
+                        confirmButtonColor: "#00C292"
+                    }).then(function () {
+                    }).catch()
+                }
+            })
+        }
+
+        function changeShaft(shaftNum) {
+            shaft = shaftNum;
+            var engId = document.getElementById('engSelect').value;
+            changeEngineering(engId);
+        }
+
+        function changeEngineering(engId) {
+            var str = '/Home/SectionSelect2?engId=' + engId + '&shaft=' + shaft;
+            var obj = document.getElementById('sectionList');
+            obj.innerHTML = "";
+            $('#sectionList').load(str);
+            var interval_temp = setInterval(function () {
+                if (obj.innerHTML) {
+                    clearInterval(interval_temp);
+                    $('.selectpicker').selectpicker('refresh');
+                    $('#search').submit();
+                }
+            }, 100)
+        }
+
+        function changeSection(sectionId) {
+            $('#search').submit();
+        }
+        function changeType(type) {
+            $('#search').submit();
+        }
+
+        $('.delete').click(function () {
+            var id = this.id;
+            swal.fire({
+                title: "你确定要删除该节点吗?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "是",
+                cancelButtonText: "否",
+                confirmButtonColor: "#00C292"
+            }).then(function (isConfirm) {
+                if (isConfirm.value) {
+                    $.ajax({
+                        url: "/Home/DeleteSensor",
+                        type: "get",
+                        data: {
+                            id: id,
+                        }
+                    }).done(function (res) {
+                        location.reload();
+                    }).catch(function (err) {
+                        console.log(err);
+                    })
+                }
+            }).catch(function () { });
+        })
+
+        $('.chk').change(function () {
+            $.ajax({
+                url: '/Home/ChangeSensorIsAlarm',
+                type: 'post',
+                data: {
+                    id: this.id,
+                    alarm:this.checked
+                }
+            }).done(function (data) {
+                if (data.res == "ok") {
+                    return;
+                } else if (data.res == "err") {
+                    swal.fire({
+                        title: "设置失败",
+                        icon: "warning",
+                        showCancelButton: false,
+                        confirmButtonText: "确定",
+                        confirmButtonColor: "#00C292"
+                    }).then(function () { }).catch(function () { });
+                }
+            })
+        })
+    </script>
+}

@@ -1,0 +1,2609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此文件由 Web 项目的发布/打包过程使用。可以通过编辑此 MSBuild 文件
+自定义此过程的行为。为了解与此相关的更多内容，请访问 https://go.microsoft.com/fwlink/?LinkID=208121。 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\Document\VS2019\Test2\JiYiTunnelSystem\FB</_PublishTargetUrl>
+    <History>True|2022-03-09T11:11:21.9762246Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/FastReport.Bars.dll">
+      <publishTime>01/29/2021 16:56:24</publishTime>
+    </File>
+    <File Include="bin/FastReport.Compat.dll">
+      <publishTime>01/29/2021 16:55:20</publishTime>
+    </File>
+    <File Include="bin/FastReport.DataVisualization.dll">
+      <publishTime>01/29/2021 16:55:16</publishTime>
+    </File>
+    <File Include="bin/FastReport.dll">
+      <publishTime>01/29/2021 16:56:28</publishTime>
+    </File>
+    <File Include="bin/FastReport.Editor.dll">
+      <publishTime>01/29/2021 16:56:32</publishTime>
+    </File>
+    <File Include="bin/FastReport.Web.dll">
+      <publishTime>01/29/2021 16:55:51</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.BLL.dll">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.BLL.pdb">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.DAL.dll">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.DAL.pdb">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.Dto.dll">
+      <publishTime>03/09/2022 19:11:16</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.Dto.pdb">
+      <publishTime>03/09/2022 19:11:16</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.IBLL.dll">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.IBLL.pdb">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.IDAL.dll">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.IDAL.pdb">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.Models.dll">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.Models.dll.config">
+      <publishTime>07/14/2021 17:29:43</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.Models.pdb">
+      <publishTime>03/09/2022 19:11:17</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.MVCSite.dll">
+      <publishTime>03/09/2022 19:11:18</publishTime>
+    </File>
+    <File Include="bin/JiYiTunnelSystem.MVCSite.pdb">
+      <publishTime>03/09/2022 19:11:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>04/24/2018 00:06:46</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.Entity.EF6.dll">
+      <publishTime>04/24/2018 00:07:06</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>02/18/2018 09:44:54</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>02/01/2018 12:16:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>02/01/2018 12:16:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>02/01/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/Webdiyer.MvcPager.dll">
+      <publishTime>08/09/2015 22:15:32</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="bin/zh-CHS/Webdiyer.MvcPager.resources.dll">
+      <publishTime>08/09/2015 22:15:32</publishTime>
+    </File>
+    <File Include="bin/zh-CHT/Webdiyer.MvcPager.resources.dll">
+      <publishTime>08/09/2015 22:15:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>02/01/2018 12:21:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>02/01/2018 12:16:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
+      <publishTime>02/11/2014 15:28:40</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>02/01/2018 12:17:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>02/01/2018 12:21:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>02/01/2018 12:21:00</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>02/01/2018 12:21:00</publishTime>
+    </File>
+    <File Include="Content/animate.css">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Content/bootstrap-select.css">
+      <publishTime>03/30/2021 16:07:35</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>05/23/2021 22:17:14</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>03/30/2021 16:08:52</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Content/button.css">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Content/dialog.css">
+      <publishTime>04/15/2021 20:44:02</publishTime>
+    </File>
+    <File Include="Content/font-awesome.min.css">
+      <publishTime>03/30/2021 09:21:19</publishTime>
+    </File>
+    <File Include="Content/login.css">
+      <publishTime>04/16/2021 10:12:12</publishTime>
+    </File>
+    <File Include="Content/meanmenu.min.css">
+      <publishTime>05/14/2021 16:26:16</publishTime>
+    </File>
+    <File Include="Content/notika-custom-icon.css">
+      <publishTime>03/30/2021 09:17:40</publishTime>
+    </File>
+    <File Include="Content/responsive.css">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>03/22/2021 11:04:41</publishTime>
+    </File>
+    <File Include="Content/style.css">
+      <publishTime>07/04/2021 09:42:27</publishTime>
+    </File>
+    <File Include="Content/sweetalert2.min.css">
+      <publishTime>04/10/2021 15:53:44</publishTime>
+    </File>
+    <File Include="Content/themesaller-forms.css">
+      <publishTime>04/10/2021 15:04:04</publishTime>
+    </File>
+    <File Include="Content/waves.min.css">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="FastReport/爆破震速监测报表.frx">
+      <publishTime>06/16/2021 22:52:59</publishTime>
+    </File>
+    <File Include="FastReport/爆破震速监测报表2.frx">
+      <publishTime>06/16/2021 22:53:00</publishTime>
+    </File>
+    <File Include="FastReport/衬砌位移监测日报表.frx">
+      <publishTime>06/23/2021 21:28:01</publishTime>
+    </File>
+    <File Include="FastReport/衬砌应变监测日报表.frx">
+      <publishTime>06/23/2021 21:28:02</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>03/22/2021 11:04:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>11/26/2020 20:38:31</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>11/26/2020 20:38:31</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>11/26/2020 20:38:31</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>11/26/2020 20:38:31</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>11/26/2020 20:38:30</publishTime>
+    </File>
+    <File Include="fonts/notika-icon.eot">
+      <publishTime>12/14/2020 22:17:56</publishTime>
+    </File>
+    <File Include="fonts/notika-icon.svg">
+      <publishTime>12/14/2020 22:17:56</publishTime>
+    </File>
+    <File Include="fonts/notika-icon.ttf">
+      <publishTime>12/14/2020 22:17:56</publishTime>
+    </File>
+    <File Include="fonts/notika-icon.woff">
+      <publishTime>12/14/2020 22:17:56</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>03/22/2021 11:04:41</publishTime>
+    </File>
+    <File Include="picture/background2.jpg">
+      <publishTime>11/09/2020 19:13:47</publishTime>
+    </File>
+    <File Include="picture/bg01.png">
+      <publishTime>03/12/2021 21:18:40</publishTime>
+    </File>
+    <File Include="picture/bg05.png">
+      <publishTime>03/12/2021 21:18:40</publishTime>
+    </File>
+    <File Include="picture/bgdark.png">
+      <publishTime>03/12/2021 21:18:40</publishTime>
+    </File>
+    <File Include="picture/bglight.png">
+      <publishTime>03/12/2021 21:18:40</publishTime>
+    </File>
+    <File Include="picture/bridge.png">
+      <publishTime>03/09/2021 15:28:39</publishTime>
+    </File>
+    <File Include="picture/chosen-sprite.png">
+      <publishTime>03/30/2021 15:30:07</publishTime>
+    </File>
+    <File Include="picture/circle.PNG">
+      <publishTime>04/25/2021 15:27:29</publishTime>
+    </File>
+    <File Include="picture/denglu_main_2.png">
+      <publishTime>11/08/2020 17:17:25</publishTime>
+    </File>
+    <File Include="picture/greenlocation.png">
+      <publishTime>01/13/2021 11:37:36</publishTime>
+    </File>
+    <File Include="picture/LJ.PNG">
+      <publishTime>03/17/2021 18:46:22</publishTime>
+    </File>
+    <File Include="picture/rectangle.PNG">
+      <publishTime>03/17/2021 16:51:13</publishTime>
+    </File>
+    <File Include="picture/rectangle_g.PNG">
+      <publishTime>04/23/2021 21:36:59</publishTime>
+    </File>
+    <File Include="picture/rectangle_o.PNG">
+      <publishTime>04/23/2021 21:36:59</publishTime>
+    </File>
+    <File Include="picture/rectangle_r.PNG">
+      <publishTime>04/23/2021 21:37:00</publishTime>
+    </File>
+    <File Include="picture/redlocation.png">
+      <publishTime>01/13/2021 11:37:22</publishTime>
+    </File>
+    <File Include="picture/shuixiangbaojing.png">
+      <publishTime>10/22/2019 15:36:36</publishTime>
+    </File>
+    <File Include="picture/SJ.PNG">
+      <publishTime>03/17/2021 18:10:27</publishTime>
+    </File>
+    <File Include="picture/square.PNG">
+      <publishTime>04/25/2021 15:27:29</publishTime>
+    </File>
+    <File Include="picture/triangle.PNG">
+      <publishTime>04/25/2021 15:29:50</publishTime>
+    </File>
+    <File Include="picture/YJ.PNG">
+      <publishTime>03/17/2021 16:43:02</publishTime>
+    </File>
+    <File Include="picture/yj2.png">
+      <publishTime>03/17/2021 16:53:05</publishTime>
+    </File>
+    <File Include="picture/ZD.PNG">
+      <publishTime>03/17/2021 18:33:49</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-select.js">
+      <publishTime>03/30/2021 15:14:19</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>03/22/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Scripts/core.js">
+      <publishTime>02/04/2021 23:32:56</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/annotations/popup.css">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/annotations/popup.scss">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/highcharts.css">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/highcharts.scss">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/stocktools/gui.css">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/stocktools/gui.scss">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/themes/dark-unica.css">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/themes/dark-unica.scss">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/themes/grid-light.css">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/themes/grid-light.scss">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/themes/sand-signika.css">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/css/themes/sand-signika.scss">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/A11yI18n.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Accessibility.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/AccessibilityComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/AnnotationsA11y.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/ContainerComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/InfoRegionsComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/LegendComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/MenuComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/RangeSelectorComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/SeriesComponent/ForcedMarkers.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/SeriesComponent/NewDataAnnouncer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/SeriesComponent/SeriesComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/SeriesComponent/SeriesDescriber.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/SeriesComponent/SeriesKeyboardNavigation.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Components/ZoomComponent.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/FocusBorder.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/HighContrastMode.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/HighContrastTheme.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/KeyboardNavigation.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/KeyboardNavigationHandler.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Options/DeprecatedOptions.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Options/LangOptions.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Options/Options.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Utils/Announcer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Utils/ChartUtilities.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Utils/DOMElementProvider.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Utils/EventProvider.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Accessibility/Utils/HTMLUtilities.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/Axis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/Axis3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/BrokenAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/ColorAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/DateTimeAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/GridAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/HiddenAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/LogarithmicAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/MapAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/NavigatorAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/OrdinalAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/PlotLineOrBand.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/RadialAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/ScrollbarAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/StackingAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/Tick.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/Tick3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/TreeGridAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/TreeGridTick.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/VMLAxis3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Axis/ZAxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Chart/Chart.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Chart/Chart3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Chart/GanttChart.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Chart/StockChart.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Color.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Dynamics.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Globals.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Interaction.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Legend.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/MSPointer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Navigator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Options.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Pointer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Renderer/HTML/HTML.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Renderer/SVG/SVGElement.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Renderer/SVG/SVGLabel.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Renderer/SVG/SVGRenderer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Renderer/SVG/SVGRenderer3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Renderer/VML/VMLRenderer3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Responsive.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Scrollbar.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Series/DataLabels.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Series/Point.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Series/Series.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Series/Series3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Time.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Tooltip.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Core/Utilities.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/error-messages.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/error.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Ajax.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Annotations.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Controllables/ControllableCircle.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Controllables/ControllableImage.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Controllables/ControllableLabel.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Controllables/ControllablePath.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Controllables/ControllableRect.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/ControlPoint.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Mixins/ControllableMixin.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Mixins/EventEmitterMixin.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Mixins/MarkerMixin.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/MockPoint.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/NavigationBindings.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Popup.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/BasicAnnotation.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/CrookedLine.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/ElliottWave.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/Fibonacci.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/InfinityLine.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/Measure.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/Pitchfork.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/Tunnel.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Annotations/Types/VerticalLine.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/ArrowSymbols.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/Boost.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/BoostableMap.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/Boostables.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/BoostAttach.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/BoostInit.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/BoostOptions.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/BoostOverrides.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/BoostUtils.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/NamedColors.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/WGLRenderer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/WGLShader.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Boost/WGLVBuffer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/BoostCanvas.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/CurrentDateIndication.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Data.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/DataGrouping.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Debugger.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/DownloadURL.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/DraggablePoints.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/DragPanes.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Drilldown.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/ExportData.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Exporting.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/FullScreen.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/GeoJSON.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/MarkerClusters.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Math3D.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/NoDataToDisplay.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/OfflineExporting.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Oldie.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/OldiePolyfills.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/OverlappingDataLabels.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Pane.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/ParallelCoordinates.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/PatternFill.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Polar.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/PriceIndication.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/RangeSelector.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/ScrollablePlotArea.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/SeriesLabel.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Stacking.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/StaticScale.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/Avocado.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/DarkBlue.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/DarkGreen.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/DarkUnica.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/Gray.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/Grid.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/GridLight.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/HighContrastDark.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/HighContrastLight.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/SandSignika.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/Skies.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Extensions/Themes/Sunset.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Gantt/Connection.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Gantt/Pathfinder.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Gantt/PathfinderAlgorithms.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Gantt/Tree.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/highcharts.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Maps/Map.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Maps/MapNavigation.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Maps/MapPointer.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/highcharts-3d.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/highcharts-more.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/highcharts.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/accessibility.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/annotations-advanced.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/annotations.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/arrow-symbols.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/boost-canvas.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/boost.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/broken-axis.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/bullet.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/coloraxis.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/current-date-indicator.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/cylinder.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/data.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/datagrouping.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/debugger.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/dependency-wheel.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/dotplot.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/drag-panes.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/draggable-points.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/drilldown.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/dumbbell.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/export-data.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/exporting.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/full-screen.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/funnel.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/funnel3d.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/gantt.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/grid-axis.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/heatmap.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/histogram-bellcurve.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/item-series.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/lollipop.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/marker-clusters.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/networkgraph.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/no-data-to-display.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/offline-exporting.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/oldie-polyfills.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/oldie.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/organization.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/overlapping-datalabels.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/parallel-coordinates.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/pareto.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/pathfinder.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/pattern-fill.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/price-indicator.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/pyramid3d.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/sankey.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/series-label.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/solid-gauge.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/sonification.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/static-scale.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/stock-tools.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/stock.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/streamgraph.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/sunburst.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/tilemap.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/timeline.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/treegrid.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/treemap.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/variable-pie.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/variwide.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/vector.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/venn.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/windbarb.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/wordcloud.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/modules/xrange.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/avocado.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/dark-blue.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/dark-green.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/dark-unica.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/gray.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/grid-light.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/grid.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/high-contrast-dark.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/high-contrast-light.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/sand-signika.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/skies.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/masters/themes/sunset.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/CenteredSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/ColorMapSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/ColorSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/DerivedSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/DrawPoint.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/Geometry.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/GeometryCircles.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/IndicatorRequired.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/LegendSymbol.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/MultipleLines.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/Navigation.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/NelderMead.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/Nodes.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/OnSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/Polygon.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/ReduceArray.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Mixins/TreeSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/chartSonify.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/Earcon.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/Instrument.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/instrumentDefinitions.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/musicalFrequencies.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/options.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/pointSonify.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/sonification.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/Timeline.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/modules/sonification/utilities.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/parts.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/AreaRangeSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/AreaSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/AreaSplineRangeSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/AreaSplineSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/BarSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/BellcurveSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/BoxPlotSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Bubble/BubbleLegend.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Bubble/BubbleSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/BulletSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/CandlestickSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Column3DSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/ColumnPyramidSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/ColumnRangeSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/ColumnSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/CylinderSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/DependencyWheelSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/DotplotSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/DumbbellSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/ErrorBarSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/FlagsSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Funnel3DSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/FunnelSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/GanttSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/GaugeSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/HeatmapSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/HistogramSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/ItemSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/LollipopSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/MapBubbleSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/MapLineSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/MapPointSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/MapSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Networkgraph/DraggableNodes.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Networkgraph/Integrations.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Networkgraph/Layouts.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Networkgraph/Networkgraph.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Networkgraph/QuadTree.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/OHLCSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/OrganizationSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/PackedBubbleSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/ParetoSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Pie3DSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/PieSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/PolygonSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Pyramid3DSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/SankeySeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/Scatter3DSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/ScatterSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/SolidGaugeSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/SplineSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/StreamgraphSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/SunburstSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/TilemapSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/TimelineSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/TreemapSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/VariablePieSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/VariwideSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/VectorSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/VennSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/WaterfallSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/WindbarbSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/WordcloudSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Series/XRangeSeries.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/ABIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/ADIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/AOIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/APOIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/AroonIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/AroonOscillatorIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/ATRIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/BBIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/CCIIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/ChaikinIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/CMFIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/DEMAIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/DPOIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/EMAIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/IKHIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/Indicators.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/KeltnerChannelsIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/MACDIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/MFIIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/MomentumIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/NATRIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/PCIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/PivotPointsIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/PPOIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/PriceEnvelopesIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/PSARIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/RegressionIndicators.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/ROCIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/RSIIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/SlowStochasticIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/StochasticIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/SupertrendIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/TEMAIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/TrendLineIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/TRIXIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/VBPIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/VWAPIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/WilliamsRIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/WMAIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/Indicators/ZigzagIndicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/StockToolsBindings.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/es-modules/Stock/StockToolsGui.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/highcharts-3d.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/highcharts-3d.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/highcharts-more.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/highcharts-more.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/highcharts.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/highcharts.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/canvg.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/canvg.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/jspdf.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/jspdf.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/rgbcolor.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/rgbcolor.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/svg2pdf.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/lib/svg2pdf.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/accessibility.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/accessibility.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/annotations-advanced.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/annotations-advanced.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/annotations.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/annotations.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/arrow-symbols.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/arrow-symbols.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/boost-canvas.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/boost-canvas.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/boost.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/boost.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/broken-axis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/broken-axis.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/bullet.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/bullet.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/coloraxis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/coloraxis.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/current-date-indicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/current-date-indicator.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/cylinder.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/cylinder.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/data.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/data.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/datagrouping.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/datagrouping.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/debugger.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/debugger.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/dependency-wheel.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/dependency-wheel.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/dotplot.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/dotplot.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/drag-panes.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/drag-panes.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/draggable-points.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/draggable-points.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/drilldown.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/drilldown.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/dumbbell.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/dumbbell.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/export-data.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/export-data.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/exporting.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/exporting.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/full-screen.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/full-screen.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/funnel.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/funnel.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/funnel3d.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/funnel3d.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/gantt.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/gantt.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/grid-axis.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/grid-axis.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/heatmap.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/heatmap.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/histogram-bellcurve.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/histogram-bellcurve.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/item-series.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/item-series.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/lollipop.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/lollipop.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/marker-clusters.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/marker-clusters.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/networkgraph.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/networkgraph.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/no-data-to-display.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/no-data-to-display.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/offline-exporting.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/offline-exporting.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/oldie-polyfills.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/oldie-polyfills.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/oldie.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/oldie.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/organization.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/organization.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/overlapping-datalabels.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/overlapping-datalabels.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/parallel-coordinates.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/parallel-coordinates.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pareto.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pareto.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pathfinder.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pathfinder.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pattern-fill.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pattern-fill.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/price-indicator.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/price-indicator.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pyramid3d.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/pyramid3d.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/sankey.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/sankey.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/series-label.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/series-label.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/solid-gauge.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/solid-gauge.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/sonification.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/sonification.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/static-scale.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/static-scale.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/stock-tools.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/stock-tools.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/stock.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/stock.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/streamgraph.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/streamgraph.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/sunburst.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/sunburst.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/tilemap.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/tilemap.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/timeline.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/timeline.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/treegrid.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/treegrid.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/treemap.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/treemap.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/variable-pie.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/variable-pie.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/variwide.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/variwide.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/vector.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/vector.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/venn.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/venn.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/windbarb.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/windbarb.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/wordcloud.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/wordcloud.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/xrange.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/modules/xrange.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/avocado.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/avocado.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/dark-blue.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/dark-blue.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/dark-green.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/dark-green.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/dark-unica.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/dark-unica.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/gray.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/gray.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/grid-light.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/grid-light.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/grid.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/grid.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/high-contrast-dark.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/high-contrast-dark.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/high-contrast-light.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/high-contrast-light.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/sand-signika.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/sand-signika.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/skies.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/skies.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/sunset.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/code/themes/sunset.src.js">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/annotations-hidden.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/annotations-visible.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/arrow-bottom.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/arrow-left.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/arrow-line.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/arrow-ray.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/arrow-right.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/arrow-segment.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/arrow.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/circle.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/close.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/crooked-3.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/crooked-5.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/current-price-hide.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/current-price-show.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/destroy.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/edit.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/elliott-3.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/elliott-5.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/fibonacci.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/flag-basic.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/flag-diamond.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/flag-elipse.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/flag-trapeze.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/fullscreen.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/horizontal-line.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/indicators.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/label.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/line.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/measure-x.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/measure-xy.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/measure-y.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/parallel-channel.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/pitchfork.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/ray.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/rectangle.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/remove-annotations.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/save-chart.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/segment.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/separator.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/series-candlestick.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/series-line.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/series-ohlc.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/text.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/vertical-arrow.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/vertical-counter.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/vertical-double-arrow.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/vertical-label.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/vertical-line.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/zoom-x.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/zoom-xy.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/stock-icons/zoom-y.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/gfx/vml-radial-gradient.png">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/color-picker.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/cursor.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/earth.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/feature.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/flag-circle.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/flag-circlepin.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/flag-diamondpin.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/flag-flag.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/flag-rectangle.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/flag-squarepin.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/flag.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/rect.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/reset.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/sand.png">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/save-chart-cloud.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/save.svg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/search.png">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/skies.jpg">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/snow.png">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/Highcharts-8.2.0/graphics/sun.png">
+      <publishTime>08/20/2020 11:16:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.js">
+      <publishTime>03/22/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.js">
+      <publishTime>03/22/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.map">
+      <publishTime>03/22/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.js">
+      <publishTime>03/22/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>03/22/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.map">
+      <publishTime>03/22/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Scripts/jquery-price-slider.js">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-touch-punch.min.js">
+      <publishTime>04/10/2021 13:21:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.mCustomScrollbar.concat.min.js">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery.meanmenu.js">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery.scrollUp.min.js">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>05/23/2021 09:53:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>05/23/2021 09:53:42</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>03/22/2021 11:06:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>03/22/2021 11:06:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>03/22/2021 11:06:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>03/22/2021 11:06:27</publishTime>
+    </File>
+    <File Include="Scripts/laydate/laydate.js">
+      <publishTime>12/05/2017 11:53:09</publishTime>
+    </File>
+    <File Include="Scripts/laydate/theme/default/font/iconfont.eot">
+      <publishTime>12/05/2017 11:53:09</publishTime>
+    </File>
+    <File Include="Scripts/laydate/theme/default/font/iconfont.svg">
+      <publishTime>12/05/2017 11:53:09</publishTime>
+    </File>
+    <File Include="Scripts/laydate/theme/default/font/iconfont.ttf">
+      <publishTime>12/05/2017 11:53:09</publishTime>
+    </File>
+    <File Include="Scripts/laydate/theme/default/font/iconfont.woff">
+      <publishTime>12/05/2017 11:53:09</publishTime>
+    </File>
+    <File Include="Scripts/laydate/theme/default/laydate.css">
+      <publishTime>12/05/2017 11:53:09</publishTime>
+    </File>
+    <File Include="Scripts/main.js">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>03/22/2021 11:06:24</publishTime>
+    </File>
+    <File Include="Scripts/owl.carousel.min.js">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Scripts/rangle-active.js">
+      <publishTime>06/15/2021 17:31:15</publishTime>
+    </File>
+    <File Include="Scripts/sensorPoints.js">
+      <publishTime>03/01/2022 20:26:54</publishTime>
+    </File>
+    <File Include="Scripts/sql.js">
+      <publishTime>04/11/2021 14:00:46</publishTime>
+    </File>
+    <File Include="Scripts/sql2.js">
+      <publishTime>04/24/2021 14:17:33</publishTime>
+    </File>
+    <File Include="Scripts/sweetalert2.min.js">
+      <publishTime>02/04/2021 23:32:40</publishTime>
+    </File>
+    <File Include="Scripts/wow.min.js">
+      <publishTime>10/15/2018 21:17:30</publishTime>
+    </File>
+    <File Include="Views/Home/AlarmLogList.cshtml">
+      <publishTime>07/02/2021 16:45:42</publishTime>
+    </File>
+    <File Include="Views/Home/AlarmSetting.cshtml">
+      <publishTime>07/02/2021 16:46:10</publishTime>
+    </File>
+    <File Include="Views/Home/AlarmUserSetting.cshtml">
+      <publishTime>07/03/2021 11:42:13</publishTime>
+    </File>
+    <File Include="Views/Home/CreateSensor.cshtml">
+      <publishTime>04/06/2021 13:58:55</publishTime>
+    </File>
+    <File Include="Views/Home/EditSensor.cshtml">
+      <publishTime>04/08/2021 21:40:31</publishTime>
+    </File>
+    <File Include="Views/Home/EngineeringSelect.cshtml">
+      <publishTime>03/23/2021 12:57:09</publishTime>
+    </File>
+    <File Include="Views/Home/EngineeringSelect2.cshtml">
+      <publishTime>04/01/2021 22:24:54</publishTime>
+    </File>
+    <File Include="Views/Home/FastReport.cshtml">
+      <publishTime>06/15/2021 19:18:12</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>03/01/2022 20:36:55</publishTime>
+    </File>
+    <File Include="Views/Home/LogList.cshtml">
+      <publishTime>05/14/2021 22:03:27</publishTime>
+    </File>
+    <File Include="Views/Home/OffsetListBySection.cshtml">
+      <publishTime>06/03/2021 16:26:49</publishTime>
+    </File>
+    <File Include="Views/Home/SectionSelect.cshtml">
+      <publishTime>03/23/2021 12:54:54</publishTime>
+    </File>
+    <File Include="Views/Home/SectionSelect2.cshtml">
+      <publishTime>04/01/2021 22:25:49</publishTime>
+    </File>
+    <File Include="Views/Home/SensorList.cshtml">
+      <publishTime>07/02/2021 21:01:01</publishTime>
+    </File>
+    <File Include="Views/Home/SteelStrainListBySection.cshtml">
+      <publishTime>03/09/2022 12:36:37</publishTime>
+    </File>
+    <File Include="Views/Home/StrainListBySection.cshtml">
+      <publishTime>06/03/2021 16:36:58</publishTime>
+    </File>
+    <File Include="Views/Home/StressListBySection.cshtml">
+      <publishTime>06/03/2021 16:44:43</publishTime>
+    </File>
+    <File Include="Views/Home/Test.cshtml">
+      <publishTime>06/03/2021 20:32:31</publishTime>
+    </File>
+    <File Include="Views/Home/UserList.cshtml">
+      <publishTime>07/03/2021 11:35:53</publishTime>
+    </File>
+    <File Include="Views/Home/VData.cshtml">
+      <publishTime>06/03/2021 15:37:18</publishTime>
+    </File>
+    <File Include="Views/Home/VibraFR.cshtml">
+      <publishTime>05/23/2021 22:10:01</publishTime>
+    </File>
+    <File Include="Views/Home/VibrationListBySection.cshtml">
+      <publishTime>06/03/2021 16:28:46</publishTime>
+    </File>
+    <File Include="Views/Home/_OffsetTableData.cshtml">
+      <publishTime>06/03/2021 16:28:06</publishTime>
+    </File>
+    <File Include="Views/Home/_SensorTableData.cshtml">
+      <publishTime>06/03/2021 21:40:58</publishTime>
+    </File>
+    <File Include="Views/Home/_SteelTableData.cshtml">
+      <publishTime>03/09/2022 17:51:26</publishTime>
+    </File>
+    <File Include="Views/Home/_StrainTableData.cshtml">
+      <publishTime>06/03/2021 16:33:13</publishTime>
+    </File>
+    <File Include="Views/Home/_StressTableData.cshtml">
+      <publishTime>03/09/2022 17:50:55</publishTime>
+    </File>
+    <File Include="Views/Home/_UserList.cshtml">
+      <publishTime>07/03/2021 11:59:01</publishTime>
+    </File>
+    <File Include="Views/Home/_UserListByAlarm.cshtml">
+      <publishTime>07/02/2021 22:40:57</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>03/22/2021 11:04:41</publishTime>
+    </File>
+    <File Include="Views/Shared/_DataListBySection.cshtml">
+      <publishTime>03/27/2021 14:21:59</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>07/04/2021 09:32:29</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutLogin.cshtml">
+      <publishTime>07/04/2021 09:41:32</publishTime>
+    </File>
+    <File Include="Views/Shared/_PartialAlarm.cshtml">
+      <publishTime>07/02/2021 16:44:08</publishTime>
+    </File>
+    <File Include="Views/Shared/_PartialMessage.cshtml">
+      <publishTime>04/08/2021 21:32:42</publishTime>
+    </File>
+    <File Include="Views/User/ChangePassword.cshtml">
+      <publishTime>05/29/2021 21:36:20</publishTime>
+    </File>
+    <File Include="Views/User/Login.cshtml">
+      <publishTime>07/02/2021 12:02:59</publishTime>
+    </File>
+    <File Include="Views/User/Register.cshtml">
+      <publishTime>04/15/2021 21:04:54</publishTime>
+    </File>
+    <File Include="Views/User/Retrieve.cshtml">
+      <publishTime>04/16/2021 10:37:27</publishTime>
+    </File>
+    <File Include="Views/User/UserInformation.cshtml">
+      <publishTime>04/16/2021 09:31:47</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>05/23/2021 09:25:50</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>03/22/2021 11:04:41</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>03/09/2022 12:47:13</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

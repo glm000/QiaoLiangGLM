@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/02/2021 15:50:44" ReportInfo.Modified="06/23/2021 21:27:01" ReportInfo.CreatorVersion="2021.1.12.0">
+  <Dictionary>
+    <MySqlDataConnection Name="Connection" ConnectionString="rijcmlqomabmqtwD7y3BaVO988Xrm2R/Wl/cBcqof9hX+E4DAbuzSt92EY46wQBCfK3v7i21BQwvc9ZKIxkiftr6Rg83JlxPGfqxZRJnal/wnLbjYHSJkAXdI/Hnnu66sl+95Cp1MF2/xGg4VBB3lr+dzboHA==" CommandTimeout="0">
+      <TableDataSource Name="engineeringsites" DataType="System.Int32" Enabled="true" TableName="engineeringsites">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="StrainAlarmValue" DataType="System.Decimal"/>
+        <Column Name="StrainContorlValue" DataType="System.Decimal"/>
+        <Column Name="OffsetAlarmValue" DataType="System.Decimal"/>
+        <Column Name="OffsetControlValue" DataType="System.Decimal"/>
+        <Column Name="VibrationAlarmValue" DataType="System.Decimal"/>
+        <Column Name="VibrationControlValue" DataType="System.Decimal"/>
+        <Column Name="SteelStressAlarmValue" DataType="System.Decimal"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="sections" DataType="System.Int32" Enabled="true" TableName="sections">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="Shaft" DataType="System.String"/>
+        <Column Name="EngId" DataType="System.Int64"/>
+        <Column Name="SectionNumber" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="sensors" DataType="System.Int32" Enabled="true" TableName="sensors">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="SectionId" DataType="System.Int64"/>
+        <Column Name="SensorType" DataType="System.String"/>
+        <Column Name="SensorNumber" DataType="System.String"/>
+        <Column Name="InitialValue" DataType="System.Decimal"/>
+        <Column Name="Comment" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select max(off.CreateTime),Data1 nowData,lastData,SensorNumber,Shaft,eng.Name,StrainAlarmValue,StrainContorlValue,SensorType&#13;&#10;from jiyitunnelsystem.strains off&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=off.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;inner join(select max(off2.CreateTime),Data1 lastData,sen2.SensorNumber lastsennum,Shaft lastshaft,sen2.SensorType lasttype&#13;&#10;from jiyitunnelsystem.strains off2&#13;&#10;inner join jiyitunnelsystem.sections sec2 on sec2.Id=off2.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng2 on sec2.EngId=eng2.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen2 on sen2.SectionId=sec2.Id&#13;&#10;where off2.CreateTime&gt;str_to_date(@lastBeginTime,'%Y-%m-%d %H:%i:%s') and off2.CreateTime&lt;str_to_date(@lastEndTime,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by lastsennum&#13;&#10;having lastsennum like '%1' and lasttype='YB' and lastshaft=@shaft) b on b.lastsennum=sen.SensorNumber&#13;&#10;where off.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s') and off.IsDeleted=0 and off.Data1 is not null and off.CreateTime in&#13;&#10;(select max(off3.CreateTime) from jiyitunnelsystem.strains off3&#13;&#10;where off3.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off3.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s')  &#13;&#10;and off3.IsDeleted=0 and off3.Data1 is not null&#13;&#10;group by off3.SectionId)&#13;&#10;group by SensorNumber&#13;&#10;having SensorNumber like '%1' and SensorType='YB' and Shaft=@shaft&#13;&#10;union all&#13;&#10;select max(off.CreateTime),Data2 nowData,lastData,SensorNumber,Shaft,eng.Name,StrainAlarmValue,StrainContorlValue,SensorType&#13;&#10;from jiyitunnelsystem.strains off&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=off.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;inner join(select max(off2.CreateTime),Data2 lastData,sen2.SensorNumber lastsennum,Shaft lastshaft,sen2.SensorType lasttype&#13;&#10;from jiyitunnelsystem.strains off2&#13;&#10;inner join jiyitunnelsystem.sections sec2 on sec2.Id=off2.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng2 on sec2.EngId=eng2.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen2 on sen2.SectionId=sec2.Id&#13;&#10;where off2.CreateTime&gt;str_to_date(@lastBeginTime,'%Y-%m-%d %H:%i:%s') and off2.CreateTime&lt;str_to_date(@lastEndTime,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by lastsennum&#13;&#10;having lastsennum like '%2' and lasttype='YB' and lastshaft=@shaft) b on b.lastsennum=sen.SensorNumber&#13;&#10;where off.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s') and off.IsDeleted=0 and off.Data2 is not null and off.CreateTime in&#13;&#10;(select max(off3.CreateTime) from jiyitunnelsystem.strains off3&#13;&#10;where off3.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off3.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s')  &#13;&#10;and off3.IsDeleted=0 and off3.Data2 is not null&#13;&#10;group by off3.SectionId)&#13;&#10;group by SensorNumber&#13;&#10;having SensorNumber like '%2' and SensorType='YB' and Shaft=@shaft&#13;&#10;union all&#13;&#10;select max(off.CreateTime),Data3 nowData,lastData,SensorNumber,Shaft,eng.Name,StrainAlarmValue,StrainContorlValue,SensorType&#13;&#10;from jiyitunnelsystem.strains off&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=off.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;inner join(select max(off2.CreateTime),Data3 lastData,sen2.SensorNumber lastsennum,Shaft lastshaft,sen2.SensorType lasttype&#13;&#10;from jiyitunnelsystem.strains off2&#13;&#10;inner join jiyitunnelsystem.sections sec2 on sec2.Id=off2.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng2 on sec2.EngId=eng2.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen2 on sen2.SectionId=sec2.Id&#13;&#10;where off2.CreateTime&gt;str_to_date(@lastBeginTime,'%Y-%m-%d %H:%i:%s') and off2.CreateTime&lt;str_to_date(@lastEndTime,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by lastsennum&#13;&#10;having lastsennum like '%3' and lasttype='YB' and lastshaft=@shaft) b on b.lastsennum=sen.SensorNumber&#13;&#10;where off.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s') and off.IsDeleted=0 and off.Data3 is not null and off.CreateTime in&#13;&#10;(select max(off3.CreateTime) from jiyitunnelsystem.strains off3&#13;&#10;where off3.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off3.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s')  &#13;&#10;and off3.IsDeleted=0 and off3.Data3 is not null&#13;&#10;group by off3.SectionId)&#13;&#10;group by SensorNumber&#13;&#10;having SensorNumber like '%3' and SensorType='YB' and Shaft=@shaft&#13;&#10;union all&#13;&#10;select max(off.CreateTime),Data4 nowData,lastData,SensorNumber,Shaft,eng.Name,StrainAlarmValue,StrainContorlValue,SensorType&#13;&#10;from jiyitunnelsystem.strains off&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=off.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;inner join(select max(off2.CreateTime),Data4 lastData,sen2.SensorNumber lastsennum,Shaft lastshaft,sen2.SensorType lasttype&#13;&#10;from jiyitunnelsystem.strains off2&#13;&#10;inner join jiyitunnelsystem.sections sec2 on sec2.Id=off2.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng2 on sec2.EngId=eng2.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen2 on sen2.SectionId=sec2.Id&#13;&#10;where off2.CreateTime&gt;str_to_date(@lastBeginTime,'%Y-%m-%d %H:%i:%s') and off2.CreateTime&lt;str_to_date(@lastEndTime,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by lastsennum&#13;&#10;having lastsennum like '%4' and lasttype='YB' and lastshaft=@shaft) b on b.lastsennum=sen.SensorNumber&#13;&#10;where off.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s') and off.IsDeleted=0 and off.Data4 is not null and off.CreateTime in&#13;&#10;(select max(off3.CreateTime) from jiyitunnelsystem.strains off3&#13;&#10;where off3.CreateTime&gt;str_to_date(@nowBeginTime,'%Y-%m-%d %H:%i:%s') and off3.CreateTime&lt;str_to_date(@nowEndTime,'%Y-%m-%d %H:%i:%s')  &#13;&#10;and off3.IsDeleted=0 and off3.Data4 is not null&#13;&#10;group by off3.SectionId)&#13;&#10;group by SensorNumber&#13;&#10;having SensorNumber like '%4' and SensorType='YB' and Shaft=@shaft&#13;&#10;order by SensorNumber asc;">
+        <Column Name="SensorNumber" DataType="System.String"/>
+        <Column Name="Shaft" DataType="System.String"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="SensorType" DataType="System.String"/>
+        <Column Name="StrainAlarmValue" DataType="System.Decimal"/>
+        <Column Name="StrainContorlValue" DataType="System.Decimal"/>
+        <Column Name="max(off.CreateTime)" DataType="System.DateTime"/>
+        <Column Name="nowData" DataType="System.Decimal"/>
+        <Column Name="lastData" DataType="System.Decimal"/>
+        <CommandParameter Name="lastBeginTime" DataType="254" Expression="[lastBeginTime]" DefaultValue="&quot;2021-05-02 18:00:00&quot;"/>
+        <CommandParameter Name="lastEndTime" DataType="254" Expression="[lastEndTime]" DefaultValue="&quot;2021-06-04 18:00:00&quot;"/>
+        <CommandParameter Name="nowEndTime" DataType="254" Expression="[nowEndTime]" DefaultValue="&quot;2021-06-09 08:42:16&quot;"/>
+        <CommandParameter Name="shaft" DataType="254" Expression="[shaft]"/>
+        <CommandParameter Name="nowBeginTime" DataType="254" Expression="[nowBeginTime]"/>
+      </TableDataSource>
+      <TableDataSource Name="strains" DataType="System.Int32" Enabled="true" TableName="strains">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="SectionId" DataType="System.Int64"/>
+        <Column Name="Data1" DataType="System.Decimal"/>
+        <Column Name="Data2" DataType="System.Decimal"/>
+        <Column Name="Data3" DataType="System.Decimal"/>
+        <Column Name="Data4" DataType="System.Decimal"/>
+        <Column Name="Data5" DataType="System.Decimal"/>
+        <Column Name="Data6" DataType="System.Decimal"/>
+        <Column Name="Data7" DataType="System.Decimal"/>
+        <Column Name="Data8" DataType="System.Decimal"/>
+        <Column Name="Data9" DataType="System.Decimal"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+    </MySqlDataConnection>
+    <Parameter Name="lastEndTime" DataType="System.String" Expression="&quot;2021-06-12 18:45:13&quot;"/>
+    <Parameter Name="nowEndTime" DataType="System.String" Expression="&quot;2021-06-14 18:00:16&quot;"/>
+    <Parameter Name="lastBeginTime" DataType="System.String" Expression="&quot;2021-06-12 18:00:00&quot;"/>
+    <Parameter Name="shaft" DataType="System.String" Expression="&quot;2&quot;"/>
+    <Parameter Name="day" DataType="System.String" Expression="&quot;month&quot;"/>
+    <Parameter Name="nowBeginTime" DataType="System.String" Expression="&quot;2021-06-12 18:45:13&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="8" RightMargin="8" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="733.32" Height="37.8">
+      <TextObject Name="Text1" Width="733.32" Height="37.8" Text="[Switch([day]==&quot;day&quot;,&quot;衬砌应变监测日报表&quot;,[day]==&quot;week&quot;,&quot;衬砌应变监测周报表&quot;,[day]==&quot;month&quot;,&quot;衬砌应变监测月报表&quot;)]" HorzAlign="Center" VertAlign="Center" Font="宋体, 14.25pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="41.8" Width="733.32" Height="122.85">
+      <TextObject Name="Text2" Top="9.45" Width="415.8" Height="18.9" Text="监测工程名称：浩吉铁路集义隧道竖井整治自动化监测" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text3" Top="37.8" Width="415.8" Height="18.9" Text="监测区段：[Switch([shaft]==&quot;2&quot;,&quot;2#斜井、正洞DK490+410～DK490+670&quot;,[shaft]==&quot;4&quot;,&quot;4#斜井、正洞DK493+880～DK494+080&quot;)]" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text4" Top="66.15" Width="330.75" Height="18.9" Text="[Switch([day]==&quot;day&quot;,&quot;本次监测时间：&quot;,[day]==&quot;week&quot;,&quot;本周监测截止时间：&quot;,[day]==&quot;month&quot;,&quot;本月监测截止时间：&quot;)][FormatDateTime(ToDateTime([nowEndTime]),&quot;yyyy年MM月dd日 HH时mm分ss秒&quot;)]" Padding="0, 0, 0, 0" VertAlign="Bottom" Font="宋体, 10.5pt"/>
+      <TableObject Name="Table1" Top="85.05" Width="733.32" Height="37.8">
+        <TableColumn Name="Column1" Width="83.16"/>
+        <TableColumn Name="Column2" Width="98.28"/>
+        <TableColumn Name="Column3" Width="98.28"/>
+        <TableColumn Name="Column4" Width="64.26"/>
+        <TableColumn Name="Column5" Width="64.26"/>
+        <TableColumn Name="Column6" Width="52.92"/>
+        <TableColumn Name="Column7" Width="52.92"/>
+        <TableColumn Name="Column8" Width="52.92"/>
+        <TableColumn Name="Column9" Width="166.32"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Text="监测点号" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt" RowSpan="2"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[Switch([day]==&quot;day&quot;,&quot;上次测值&quot;,[day]==&quot;week&quot;,&quot;上周截止测值&quot;,[day]==&quot;month&quot;,&quot;上月截止测值&quot;)]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="[Switch([day]==&quot;day&quot;,&quot;本次测值&quot;,[day]==&quot;week&quot;,&quot;本周截止测值&quot;,[day]==&quot;month&quot;,&quot;本月截止测值&quot;)]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="本次&#13;&#10;变化量" Padding="1, 1, 1, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt" RowSpan="2"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="累计&#13;&#10;变化量" Padding="1, 1, 1, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt" RowSpan="2"/>
+          <TableCell Name="Cell11" Border.Lines="All" Text="预警值" Padding="1, 1, 1, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt" RowSpan="2"/>
+          <TableCell Name="Cell13" Border.Lines="All" Text="控制值" Padding="1, 1, 1, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt" RowSpan="2"/>
+          <TableCell Name="Cell15" Border.Lines="All" Text="预警&#13;&#10;等级" Padding="1, 1, 1, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt" RowSpan="2"/>
+          <TableCell Name="Cell17" Border.Lines="All" Text="位置" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt" RowSpan="2"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="[FormatDateTime(ToDateTime([lastEndTime]),&quot;yyyy年MM月dd日&quot;)]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="[FormatDateTime(ToDateTime([nowEndTime]),&quot;yyyy年MM月dd日&quot;)]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell9" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell12" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell14" Border.Lines="All" Font="宋体, 9pt"/>
+          <TableCell Name="Cell16" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+          <TableCell Name="Cell18" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text17" Left="343.98" Top="66.15" Width="330.75" Height="18.9" Text="[Switch([day]==&quot;day&quot;,&quot;上次监测时间：&quot;,[day]==&quot;week&quot;,&quot;上周监测截止时间：&quot;,[day]==&quot;month&quot;,&quot;上月监测截止时间：&quot;)][FormatDateTime(ToDateTime([lastEndTime]),&quot;yyyy年MM月dd日 HH时mm分ss秒&quot;)]" Padding="0, 0, 0, 0" VertAlign="Bottom" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text18" Left="680.4" Top="47.25" Width="54.81" Height="18.9" Text="单位" HorzAlign="Center" VertAlign="Bottom" Font="宋体, 10.5pt" TextRenderType="HtmlParagraph"/>
+      <TextObject Name="Text19" Left="680.4" Top="66.15" Width="54.81" Height="18.9" Text="(×10&lt;sup&gt;-6&lt;/sup&gt;)" Padding="0, 2, 0, 0" HorzAlign="Center" Font="宋体, 10.5pt" TextRenderType="HtmlParagraph"/>
+    </DataBand>
+    <DataBand Name="Data2" Top="168.65" Width="733.32" Height="30.24" DataSource="Table">
+      <TextObject Name="Text6" Width="83.16" Height="30.24" Border.Lines="All" Text="[Table.SensorNumber]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text9" Left="83.16" Width="98.28" Height="30.24" Border.Lines="All" Text="[Table.lastData]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text8" Left="181.44" Width="98.28" Height="30.24" Border.Lines="All" Text="[Table.nowData]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text10" Left="279.72" Width="64.26" Height="30.24" Border.Lines="All" Text="[ToDecimal([Table.nowData])-ToDecimal([Table.lastData])]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text11" Left="343.98" Width="64.26" Height="30.24" Border.Lines="All" Text="[Table.nowData]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text12" Left="408.24" Width="52.92" Height="30.24" Border.Lines="All" Text="[Table.StrainAlarmValue]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text13" Left="461.16" Width="52.92" Height="30.24" Border.Lines="All" Text="[Table.StrainContorlValue]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text14" Left="514.08" Width="52.92" Height="30.24" Border.Lines="All" Text="[Switch(Abs(ToDecimal([Table.nowData]))&lt;ToDecimal([Table.StrainAlarmValue]),&quot;无&quot;,Abs(ToDecimal([Table.nowData]))&lt;ToDecimal([Table.StrainContorlValue]),&quot;预警&quot;,Abs(ToDecimal([Table.nowData]))&gt;=ToDecimal([Table.StrainContorlValue]),&quot;危险&quot;)]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text15" Left="567" Width="166.32" Height="30.24" Border.Lines="All" Text="[Table.Shaft]#[Switch(Substring([Table.SensorNumber],0,2)==&quot;2X&quot;&amp;&amp;ToInt32(Substring([Table.SensorNumber],4,2))&lt;40,&quot;斜井与正洞交叉口&quot;,Substring([Table.SensorNumber],0,3)==&quot;3X0&quot;,&quot;斜井与正洞交叉口&quot;,Substring([Table.SensorNumber],0,2)==&quot;2X&quot;,&quot;斜井与连接通道交叉口&quot;,Substring([Table.SensorNumber],0,3)==&quot;3X1&quot;,&quot;斜井与连接通道交叉口&quot;,Substring([Table.SensorNumber],0,2)!=&quot;&quot;,[Table.Name])]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+    </DataBand>
+    <DataBand Name="Data3" Top="202.89" Width="733.32" Height="37.8">
+      <TextObject Name="Text16" Width="733.32" Height="37.8" Border.Lines="All" Text="技术负责人：                    监测项目负责人：" VertAlign="Center" Font="宋体, 12pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="244.69" Width="733.32" Height="28.35">
+      <TextObject Name="Text5" Left="633.15" Top="9.45" Width="94.5" Height="18.9" Text="[Page#]" HorzAlign="Right" Font="宋体, 9pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

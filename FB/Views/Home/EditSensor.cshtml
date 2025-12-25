@@ -1,0 +1,208 @@
+﻿@model JiYiTunnelSystem.MVCSite.Models.Home.CreateSensorVM
+
+@{
+    ViewBag.Title = "修改传感器信息";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                <div class="inbox-left-sd">
+                    <div class="compose-ml"><a class="btn">设备中心</a></div>
+                    <div class="inbox-status">
+                        <ul class="inbox-st-nav">
+                            <li><a href=@Url.Action("SensorList","Home",new { type="0"})><i class="notika-icon notika-left-arrow"></i>返回列表</a></li>
+                            <li><a href=@Url.Action("CreateSensor","Home")><i class="notika-icon notika-plus-symbol"></i>添加设备</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 mg-b-20">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd">
+                        <h2>@ViewBag.Title</h2>
+                    </div>
+                    <div>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            @Html.LabelFor(model => model.Shaft, htmlAttributes: new { @class = "hrzn-fm" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                @Html.DropDownListFor(model => model.Shaft, new SelectList(ViewBag.Shafts, "Id", "Name", ViewBag.SelectedShaft), new { @class = "selectpicker", @onchange = "changeShaft(this.value)" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            @Html.LabelFor(model => model.EngId, htmlAttributes: new { @class = "hrzn-fm" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                @Html.DropDownList("buwei", new SelectList(ViewBag.Engs, "Id", "Name", ViewBag.SelectedEng), new { @class = "selectpicker", @onchange = "changeEngineering(this.value)" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            @Html.LabelFor(model => model.SectionId, htmlAttributes: new { @class = "hrzn-fm" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                @Html.DropDownList("SecId", (IEnumerable<SelectListItem>)ViewBag.SectionIds, new { @class = "selectpicker" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            @Html.LabelFor(model => model.SensorType, htmlAttributes: new { @class = "hrzn-fm" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                @Html.DropDownListFor(model => model.SensorType, new SelectList(ViewBag.SensorTypes, "Id", "Name", ViewBag.SelectedType), new { @class = "selectpicker" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            @Html.LabelFor(model => model.SensorNum, htmlAttributes: new { @class = "hrzn-fm" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                @Html.EditorFor(model => model.SensorNum, new { htmlAttributes = new { @class = "form-control input-sm", @onblur = "check(this)" } })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            @Html.LabelFor(model => model.InitialValue, htmlAttributes: new { @class = "hrzn-fm" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                @Html.EditorFor(model => model.InitialValue, new { htmlAttributes = new { @class = "form-control input-sm", @onblur = "check(this)" } })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                            @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "hrzn-fm" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control input-sm", @onblur = "check(this)" } })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental mg-t-30">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12"></div>
+                                        <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                <input type="button" onclick="checkBtn(this.form)" value="保存" class="btn btn-success notika-btn-success" />
+                                                <input type="hidden" value="@ViewBag.Url" name="url"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+@section scripts{
+    @Scripts.Render("~/bundles/dialog")
+    <script>
+        $(function () {
+            $('.selectpicker').selectpicker('refresh');
+        })
+
+        function changeShaft(shaftNum) {
+            var engId = document.getElementById('buwei').value;
+            changeEngineering(engId);
+        }
+
+        function changeEngineering(engId) {
+            var shaft = document.getElementById('Shaft').value;
+            var str = '/Home/SectionSelect?engId=' + engId + '&shaft=' + shaft;
+            var obj = document.getElementById('SecId');
+            obj.innerHTML = "";
+            $('#SecId').load(str);
+            var interval_temp = setInterval(function () {
+                if (obj.innerHTML) {
+                    clearInterval(interval_temp);
+                    $('.selectpicker').selectpicker('refresh');
+                }
+            }, 100)
+        }
+        function check(obj) {
+            if (obj.value == "") {
+                if (obj.id == "SensorNum")
+                    showMessage("传感器编号不能为空");
+            } else if (obj.id == "InitialValue") {
+
+            } else if (obj.id == "Comment") {
+
+            } else if (obj.id == "SensorNum") {
+
+            }
+        }
+        function checkBtn(obj) {
+            if (document.getElementById('SensorNum').value == "") showMessage("传感器编号不能为空");
+            else obj.submit();
+        }
+        function showMessage(err) {
+            swal.fire({
+                title: err,
+                icon: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonText: "确认",
+                cancelButtonColor: "#00C292",
+            }).then(function (isConfirm) {
+                if (isConfirm.value) {
+
+                }
+            }).catch(function () { });
+        }
+    </script>
+}

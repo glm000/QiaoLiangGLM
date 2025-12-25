@@ -1,0 +1,1003 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9856CF4-EE1D-4F5E-A7C7-AEA0901A6954}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JiYiTunnelSystem.MVCSite</RootNamespace>
+    <AssemblyName>JiYiTunnelSystem.MVCSite</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport, Version=2021.1.12.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files\FastReports\FastReport.Net Trial\Framework 4.0\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Web, Version=2021.1.12.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files\FastReports\FastReport.Net Trial\Framework 4.0\FastReport.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.10.7\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.10.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.Entity.6.10.7\lib\net452\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Webdiyer.MvcPager, Version=3.0.2015.802, Culture=neutral, PublicKeyToken=f6872c5a09aed72c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Webdiyer.MvcPager.3.0.1.1\lib\Webdiyer.MvcPager.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\ManagerAuthAttribute.cs" />
+    <Compile Include="Filters\LoginAuthAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HelperCode\MailHelp.cs" />
+    <Compile Include="HelperCode\MySQLCon.cs" />
+    <Compile Include="HelperCode\VerifyCode.cs" />
+    <Compile Include="Models\Home\CreateSensorVM.cs" />
+    <Compile Include="Models\Home\SelectViewModel.cs" />
+    <Compile Include="Models\PartialMessageVM.cs" />
+    <Compile Include="Models\User\ChangePasswordVM.cs" />
+    <Compile Include="Models\User\LoginViewModel.cs" />
+    <Compile Include="Models\User\RegisterViewModel.cs" />
+    <Compile Include="Models\User\RetrieveViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\button.css" />
+    <Content Include="Content\dialog.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\meanmenu.min.css" />
+    <Content Include="Content\notika-custom-icon.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\sweetalert2.min.css" />
+    <Content Include="Content\themesaller-forms.css" />
+    <Content Include="Content\waves.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\notika-icon.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="picture\bglight.png" />
+    <Content Include="picture\bgdark.png" />
+    <Content Include="picture\chosen-sprite.png" />
+    <Content Include="picture\circle.PNG" />
+    <Content Include="picture\greenlocation.png" />
+    <Content Include="picture\LJ.PNG" />
+    <Content Include="picture\rectangle.PNG" />
+    <Content Include="picture\rectangle_g.PNG" />
+    <Content Include="picture\rectangle_o.PNG" />
+    <Content Include="picture\rectangle_r.PNG" />
+    <Content Include="picture\redlocation.png" />
+    <Content Include="picture\SJ.PNG" />
+    <Content Include="picture\square.PNG" />
+    <Content Include="picture\triangle.PNG" />
+    <Content Include="picture\YJ.PNG" />
+    <Content Include="picture\yj2.png" />
+    <Content Include="picture\ZD.PNG" />
+    <Content Include="Scripts\bootstrap-select.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\core.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\annotations\popup.scss" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\highcharts.scss" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\stocktools\gui.scss" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\themes\dark-unica.scss" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\themes\grid-light.scss" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\themes\sand-signika.scss" />
+    <Content Include="fonts\notika-icon.eot" />
+    <Content Include="fonts\notika-icon.ttf" />
+    <Content Include="fonts\notika-icon.woff" />
+    <Content Include="FastReport\爆破震速监测报表.frx" />
+    <Content Include="FastReport\衬砌位移监测日报表.frx" />
+    <Content Include="FastReport\衬砌应变监测日报表.frx" />
+    <Content Include="FastReport\爆破震速监测报表2.frx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\annotations\popup.css" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\highcharts.css" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\stocktools\gui.css" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\themes\dark-unica.css" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\themes\grid-light.css" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\css\themes\sand-signika.css" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\A11yI18n.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Accessibility.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\AccessibilityComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\AnnotationsA11y.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\ContainerComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\InfoRegionsComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\LegendComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\MenuComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\RangeSelectorComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\SeriesComponent\ForcedMarkers.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\SeriesComponent\NewDataAnnouncer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\SeriesComponent\SeriesComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\SeriesComponent\SeriesDescriber.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\SeriesComponent\SeriesKeyboardNavigation.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Components\ZoomComponent.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\FocusBorder.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\HighContrastMode.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\HighContrastTheme.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\KeyboardNavigation.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\KeyboardNavigationHandler.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Options\DeprecatedOptions.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Options\LangOptions.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Options\Options.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Utils\Announcer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Utils\ChartUtilities.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Utils\DOMElementProvider.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Utils\EventProvider.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Accessibility\Utils\HTMLUtilities.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\Axis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\Axis3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\BrokenAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\ColorAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\DateTimeAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\GridAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\HiddenAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\LogarithmicAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\MapAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\NavigatorAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\OrdinalAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\PlotLineOrBand.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\RadialAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\ScrollbarAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\StackingAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\Tick.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\Tick3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\TreeGridAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\TreeGridTick.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\VMLAxis3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Axis\ZAxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Chart\Chart.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Chart\Chart3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Chart\GanttChart.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Chart\StockChart.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Color.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Dynamics.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Globals.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Interaction.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Legend.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\MSPointer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Navigator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Options.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Pointer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Renderer\HTML\HTML.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Renderer\SVG\SVGElement.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Renderer\SVG\SVGLabel.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Renderer\SVG\SVGRenderer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Renderer\SVG\SVGRenderer3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Renderer\VML\VMLRenderer3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Responsive.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Scrollbar.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Series\DataLabels.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Series\Point.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Series\Series.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Series\Series3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Time.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Tooltip.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Core\Utilities.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\error-messages.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\error.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Ajax.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Annotations.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Controllables\ControllableCircle.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Controllables\ControllableImage.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Controllables\ControllableLabel.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Controllables\ControllablePath.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Controllables\ControllableRect.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\ControlPoint.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Mixins\ControllableMixin.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Mixins\EventEmitterMixin.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Mixins\MarkerMixin.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\MockPoint.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\NavigationBindings.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Popup.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\BasicAnnotation.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\CrookedLine.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\ElliottWave.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\Fibonacci.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\InfinityLine.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\Measure.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\Pitchfork.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\Tunnel.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Annotations\Types\VerticalLine.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\ArrowSymbols.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\BoostCanvas.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\Boost.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\BoostableMap.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\Boostables.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\BoostAttach.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\BoostInit.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\BoostOptions.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\BoostOverrides.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\BoostUtils.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\NamedColors.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\WGLRenderer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\WGLShader.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Boost\WGLVBuffer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\CurrentDateIndication.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Data.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\DataGrouping.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Debugger.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\DownloadURL.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\DraggablePoints.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\DragPanes.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Drilldown.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\ExportData.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Exporting.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\FullScreen.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\GeoJSON.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\MarkerClusters.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Math3D.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\NoDataToDisplay.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\OfflineExporting.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Oldie.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\OldiePolyfills.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\OverlappingDataLabels.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Pane.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\ParallelCoordinates.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\PatternFill.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Polar.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\PriceIndication.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\RangeSelector.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\ScrollablePlotArea.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\SeriesLabel.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Stacking.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\StaticScale.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\Avocado.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\DarkBlue.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\DarkGreen.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\DarkUnica.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\Gray.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\Grid.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\GridLight.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\HighContrastDark.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\HighContrastLight.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\SandSignika.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\Skies.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Extensions\Themes\Sunset.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Gantt\Connection.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Gantt\Pathfinder.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Gantt\PathfinderAlgorithms.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Gantt\Tree.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\highcharts.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Maps\Map.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Maps\MapNavigation.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Maps\MapPointer.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\highcharts-3d.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\highcharts-more.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\highcharts.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\accessibility.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\annotations-advanced.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\annotations.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\arrow-symbols.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\boost-canvas.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\boost.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\broken-axis.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\bullet.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\coloraxis.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\current-date-indicator.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\cylinder.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\data.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\datagrouping.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\debugger.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\dependency-wheel.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\dotplot.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\drag-panes.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\draggable-points.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\drilldown.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\dumbbell.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\export-data.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\exporting.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\full-screen.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\funnel.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\funnel3d.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\gantt.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\grid-axis.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\heatmap.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\histogram-bellcurve.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\item-series.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\lollipop.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\marker-clusters.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\networkgraph.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\offline-exporting.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\oldie-polyfills.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\oldie.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\organization.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\overlapping-datalabels.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\parallel-coordinates.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\pareto.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\pathfinder.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\pattern-fill.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\price-indicator.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\pyramid3d.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\sankey.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\series-label.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\sonification.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\static-scale.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\stock-tools.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\stock.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\streamgraph.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\sunburst.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\tilemap.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\timeline.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\treegrid.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\treemap.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\variable-pie.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\variwide.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\vector.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\venn.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\windbarb.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\wordcloud.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\modules\xrange.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\avocado.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\dark-blue.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\dark-green.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\dark-unica.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\gray.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\grid-light.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\grid.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\high-contrast-dark.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\high-contrast-light.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\sand-signika.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\skies.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\masters\themes\sunset.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\CenteredSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\ColorMapSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\ColorSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\DerivedSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\DrawPoint.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\Geometry.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\GeometryCircles.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\IndicatorRequired.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\LegendSymbol.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\MultipleLines.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\Navigation.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\NelderMead.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\Nodes.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\OnSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\Polygon.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\ReduceArray.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Mixins\TreeSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\chartSonify.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\Earcon.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\Instrument.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\instrumentDefinitions.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\musicalFrequencies.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\options.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\pointSonify.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\sonification.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\Timeline.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\modules\sonification\utilities.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\parts.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\AreaRangeSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\AreaSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\AreaSplineRangeSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\AreaSplineSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\BarSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\BellcurveSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\BoxPlotSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Bubble\BubbleLegend.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Bubble\BubbleSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\BulletSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\CandlestickSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Column3DSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\ColumnPyramidSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\ColumnRangeSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\ColumnSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\CylinderSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\DependencyWheelSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\DotplotSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\DumbbellSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\ErrorBarSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\FlagsSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Funnel3DSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\FunnelSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\GanttSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\GaugeSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\HeatmapSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\HistogramSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\ItemSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\LollipopSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\MapBubbleSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\MapLineSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\MapPointSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\MapSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Networkgraph\DraggableNodes.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Networkgraph\Integrations.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Networkgraph\Layouts.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Networkgraph\Networkgraph.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Networkgraph\QuadTree.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\OHLCSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\OrganizationSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\PackedBubbleSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\ParetoSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Pie3DSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\PieSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\PolygonSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Pyramid3DSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\SankeySeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\Scatter3DSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\ScatterSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\SolidGaugeSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\SplineSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\StreamgraphSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\SunburstSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\TilemapSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\TimelineSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\TreemapSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\VariablePieSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\VariwideSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\VectorSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\VennSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\WaterfallSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\WindbarbSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\WordcloudSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Series\XRangeSeries.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\ABIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\ADIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\AOIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\APOIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\AroonIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\AroonOscillatorIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\ATRIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\BBIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\CCIIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\ChaikinIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\CMFIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\DEMAIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\DPOIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\EMAIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\IKHIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\Indicators.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\KeltnerChannelsIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\MACDIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\MFIIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\MomentumIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\NATRIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\PCIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\PivotPointsIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\PPOIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\PriceEnvelopesIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\PSARIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\RegressionIndicators.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\ROCIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\RSIIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\SlowStochasticIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\StochasticIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\SupertrendIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\TEMAIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\TrendLineIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\TRIXIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\VBPIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\VWAPIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\WilliamsRIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\WMAIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\Indicators\ZigzagIndicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\StockToolsBindings.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\es-modules\Stock\StockToolsGui.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\highcharts-3d.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\highcharts-3d.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\highcharts-more.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\highcharts-more.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\highcharts.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\highcharts.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\canvg.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\canvg.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\jspdf.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\jspdf.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\rgbcolor.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\rgbcolor.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\svg2pdf.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\lib\svg2pdf.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\accessibility.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\accessibility.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\annotations-advanced.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\annotations-advanced.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\annotations.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\annotations.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\arrow-symbols.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\arrow-symbols.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\boost-canvas.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\boost-canvas.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\boost.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\boost.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\broken-axis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\broken-axis.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\bullet.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\bullet.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\coloraxis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\coloraxis.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\current-date-indicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\current-date-indicator.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\cylinder.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\cylinder.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\data.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\data.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\datagrouping.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\datagrouping.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\debugger.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\debugger.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\dependency-wheel.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\dependency-wheel.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\dotplot.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\dotplot.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\drag-panes.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\drag-panes.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\draggable-points.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\draggable-points.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\drilldown.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\drilldown.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\dumbbell.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\dumbbell.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\export-data.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\export-data.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\exporting.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\exporting.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\full-screen.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\full-screen.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\funnel.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\funnel.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\funnel3d.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\funnel3d.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\gantt.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\gantt.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\grid-axis.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\grid-axis.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\heatmap.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\heatmap.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\histogram-bellcurve.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\histogram-bellcurve.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\item-series.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\item-series.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\lollipop.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\lollipop.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\marker-clusters.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\marker-clusters.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\networkgraph.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\networkgraph.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\no-data-to-display.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\offline-exporting.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\offline-exporting.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\oldie-polyfills.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\oldie-polyfills.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\oldie.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\oldie.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\organization.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\organization.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\overlapping-datalabels.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\overlapping-datalabels.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\parallel-coordinates.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\parallel-coordinates.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pareto.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pareto.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pathfinder.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pathfinder.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pattern-fill.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pattern-fill.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\price-indicator.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\price-indicator.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pyramid3d.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\pyramid3d.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\sankey.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\sankey.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\series-label.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\series-label.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\solid-gauge.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\sonification.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\sonification.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\static-scale.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\static-scale.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\stock-tools.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\stock-tools.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\stock.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\stock.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\streamgraph.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\streamgraph.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\sunburst.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\sunburst.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\tilemap.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\tilemap.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\timeline.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\timeline.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\treegrid.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\treegrid.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\treemap.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\treemap.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\variable-pie.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\variable-pie.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\variwide.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\variwide.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\vector.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\vector.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\venn.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\venn.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\windbarb.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\windbarb.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\wordcloud.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\wordcloud.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\xrange.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\modules\xrange.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\avocado.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\avocado.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\dark-blue.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\dark-blue.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\dark-green.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\dark-green.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\dark-unica.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\dark-unica.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\gray.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\gray.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\grid-light.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\grid-light.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\grid.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\grid.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\high-contrast-dark.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\high-contrast-dark.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\high-contrast-light.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\high-contrast-light.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\sand-signika.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\sand-signika.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\skies.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\skies.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\sunset.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\code\themes\sunset.src.js" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\annotations-hidden.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\annotations-visible.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\arrow-bottom.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\arrow-left.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\arrow-line.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\arrow-ray.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\arrow-right.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\arrow-segment.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\arrow.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\circle.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\close.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\crooked-3.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\crooked-5.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\current-price-hide.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\current-price-show.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\destroy.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\edit.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\elliott-3.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\elliott-5.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\fibonacci.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\flag-basic.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\flag-diamond.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\flag-elipse.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\flag-trapeze.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\fullscreen.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\horizontal-line.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\indicators.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\label.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\line.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\measure-x.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\measure-xy.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\measure-y.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\parallel-channel.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\pitchfork.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\ray.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\rectangle.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\remove-annotations.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\save-chart.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\segment.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\separator.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\series-candlestick.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\series-line.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\series-ohlc.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\text.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\vertical-arrow.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\vertical-counter.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\vertical-double-arrow.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\vertical-label.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\vertical-line.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\zoom-x.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\zoom-xy.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\stock-icons\zoom-y.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\gfx\vml-radial-gradient.png" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\color-picker.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\cursor.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\earth.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\feature.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\flag-circle.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\flag-circlepin.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\flag-diamondpin.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\flag-flag.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\flag-rectangle.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\flag-squarepin.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\flag.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\rect.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\reset.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\sand.png" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\save-chart-cloud.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\save.svg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\search.png" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\skies.jpg" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\snow.png" />
+    <Content Include="Scripts\Highcharts-8.2.0\graphics\sun.png" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-price-slider.js" />
+    <Content Include="Scripts\jquery-ui-touch-punch.min.js" />
+    <Content Include="Scripts\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Scripts\jquery.meanmenu.js" />
+    <Content Include="Scripts\jquery.scrollUp.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\laydate\laydate.js" />
+    <Content Include="Scripts\laydate\theme\default\font\iconfont.svg" />
+    <Content Include="Scripts\laydate\theme\default\laydate.css" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\rangle-active.js" />
+    <Content Include="Scripts\sensorPoints.js" />
+    <Content Include="Scripts\sql.js" />
+    <Content Include="Scripts\sql2.js" />
+    <Content Include="Scripts\sweetalert2.min.js" />
+    <Content Include="Scripts\wow.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\EngineeringSelect.cshtml" />
+    <Content Include="Views\Home\SectionSelect.cshtml" />
+    <Content Include="Scripts\laydate\theme\default\font\iconfont.eot" />
+    <Content Include="Scripts\laydate\theme\default\font\iconfont.ttf" />
+    <Content Include="Scripts\laydate\theme\default\font\iconfont.woff" />
+    <Content Include="Views\Home\SensorList.cshtml" />
+    <Content Include="Views\Home\VibrationListBySection.cshtml" />
+    <Content Include="Views\Shared\_DataListBySection.cshtml" />
+    <Content Include="Views\Home\EngineeringSelect2.cshtml" />
+    <Content Include="Views\Home\SectionSelect2.cshtml" />
+    <Content Include="Views\Home\CreateSensor.cshtml" />
+    <Content Include="Views\Shared\_PartialMessage.cshtml" />
+    <Content Include="Views\Home\EditSensor.cshtml" />
+    <Content Include="Views\Home\LogList.cshtml" />
+    <Content Include="Views\Home\AlarmLogList.cshtml" />
+    <Content Include="Views\Home\AlarmSetting.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\Retrieve.cshtml" />
+    <Content Include="Views\User\UserInformation.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\Home\OffsetListBySection.cshtml" />
+    <Content Include="Views\Home\StrainListBySection.cshtml" />
+    <Content Include="Views\Home\StressListBySection.cshtml" />
+    <Content Include="Views\Home\SteelStrainListBySection.cshtml" />
+    <Content Include="Views\Home\FastReport.cshtml" />
+    <Content Include="Views\Home\VibraFR.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\VData.cshtml" />
+    <Content Include="Views\Home\_OffsetTableData.cshtml" />
+    <Content Include="Views\Home\_StrainTableData.cshtml" />
+    <Content Include="Views\Home\_StressTableData.cshtml" />
+    <Content Include="Views\Home\_SteelTableData.cshtml" />
+    <Content Include="Views\Home\_SensorTableData.cshtml" />
+    <Content Include="Views\Home\_UserListByAlarm.cshtml" />
+    <Content Include="Views\Home\AlarmUserSetting.cshtml" />
+    <Content Include="Views\Shared\_PartialAlarm.cshtml" />
+    <Content Include="Views\Home\UserList.cshtml" />
+    <Content Include="Views\Home\_UserList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JiYiTunnelSystem.BLL\JiYiTunnelSystem.BLL.csproj">
+      <Project>{4f82df0a-5c97-42f1-ba53-f842cfbf2e8b}</Project>
+      <Name>JiYiTunnelSystem.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JiYiTunnelSystem.Dto\JiYiTunnelSystem.Dto.csproj">
+      <Project>{35e3cee1-8457-49c2-b015-b1968200d0c3}</Project>
+      <Name>JiYiTunnelSystem.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JiYiTunnelSystem.IBLL\JiYiTunnelSystem.IBLL.csproj">
+      <Project>{fbdb48fe-a48a-4b3f-abe2-35ce9d5577ef}</Project>
+      <Name>JiYiTunnelSystem.IBLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60803</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60803/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

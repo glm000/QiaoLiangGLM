@@ -1,0 +1,266 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<JiYiTunnelSystem.Dto.LogDto>
+
+@{
+    ViewBag.Title = "日志列表";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xm-12 col-xs-12 mg-b-20">
+                <div class="form-element-list">
+                    @using (Html.BeginForm("LogList", "Home", FormMethod.Get))
+                    {
+                        <div class="row">
+                            <div class="col-lg-4 col-md-3 col-sm-2"></div>
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                                <div class="form-group nk-datapk-ctm form-elet-mg">
+                                    <div class="input-group">
+                                        @if (ViewBag.beginTime != "")
+                                        {
+                                            <input type="text" id="beginTime" name="beginTime" class="form-control tb-txt" value="@ViewBag.beginTime" placeholder="开始时间" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" id="beginTime" name="beginTime" class="form-control tb-txt" placeholder="开始时间" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                                <div class="form-group nk-datapk-ctm form-elet-mg">
+                                    <div class="input-group">
+                                        @if (ViewBag.endTime != "")
+                                        {
+                                            <input type="text" id="endTime" name="endTime" class="form-control tb-txt" value="@ViewBag.endTime" placeholder="结束时间" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" id="endTime" name="endTime" class="form-control tb-txt" placeholder="结束时间" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 btn-xs">
+                                <input id="btn_query" type="submit" class="btn btn-success" value="查询" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xm-12 col-xs-12">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd"><h2>@ViewBag.Title</h2></div>
+                    <div class="table-responsive data-list tb-txt">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.UserName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Phone)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Behavior)
+                                    </th>
+                                    <th class="th-order">
+                                        @Html.DisplayNameFor(model => model.CreateTime)
+                                        <i class="glyphicon glyphicon-sort"></i>
+                                    </th>
+                                    <th>
+                                        <input type="checkbox" id="selectAll" name="selectAll" onclick="changeState(this.checked)" />
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Behavior)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreateTime)
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" value="@item.Id" class="chk" onchange="changeChk()"/>
+                                        </td>
+                                        @*<td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                            </td>*@
+                                    </tr>
+                                }
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            <nav>
+                                                @Html.Pager(Model, new PagerOptions {
+                                               PageIndexParameterName = "pageIndex",ContainerTagName = "ul", CssClass = "pagination",
+                                               CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+                                               DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+                                               PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager",
+                                               RouteValues=new RouteValueDictionary { { "beginTime",ViewBag.beginTime }, { "endTime",ViewBag.endTime} }
+                                           })
+                                            </nav>
+                                        </td>
+                                        <td>
+                                            <input id="btn_delete" style="display:none;" type="button" class="btn btn-danger notika-btn-danger" value="删除" />
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        }
+                        else
+                        { <span class="tb-err-txt">无数据</span>}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+@section scripts{
+    @Scripts.Render("~/bundles/dialog")
+    <script src="~/Scripts/laydate/laydate.js"></script>
+    <script>
+        laydate.render({
+            elem: '#beginTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#endTime',
+            type: 'datetime'
+        });
+
+        $('.th-order').click(function () {
+            timeOrder = false;
+            var str = location.href;
+            var reg = RegExp(/timeOrder=false/);
+            if (reg.test(str)) {
+                var href = str.match(/.+(?=timeOrder=false)/);
+                if (str.match(/(?<=timeOrder=false&).+/)) {
+                    href += str.match(/(?<=timeOrder=false&).+/);
+                }
+                location.href = href;
+            }
+            else {
+                if (str.indexOf('?') != -1) {
+                    if (str.indexOf('=') != -1) {
+                        if (str.substring(str.length - 1, str.length) == '&') {
+                            str = str.substring(0, str.length - 1);
+                        }
+                        str += '&timeOrder=' + timeOrder;
+                    }
+                    else {
+                        str += 'timeOrder=' + timeOrder;
+                    }
+                }
+                else {
+                    str += '?timeOrder=' + timeOrder;
+                }
+                location.href = str;
+            }
+        })
+
+        function changeState(isChecked) {
+            var checkList = document.getElementsByTagName("input");
+            for (var i = 0; i < checkList.length; i++) {
+                if (checkList[i].type == "checkbox") {
+                    checkList[i].checked = isChecked;
+                }
+            }
+            if (isChecked) {
+                $('#btn_delete').show();
+            } else {
+                $('#btn_delete').hide();
+            }
+        }
+
+        function changeChk() {
+            var checkList = document.getElementsByTagName("input");
+            for (var i = 0; i < checkList.length; i++) {
+                if (checkList[i].type == "checkbox") {
+                    if (checkList[i].checked) {
+                        $('#btn_delete').show();
+                        break;
+                    }
+                }
+                if (i == checkList.length - 1) {
+                    $('#btn_delete').hide();
+                }
+            }
+        }
+        $('#btn_delete').click(function () {
+            var arr = [];
+            $('.chk:checked').each(function (i, e) { arr.push(e.value); });
+            if (arr.length > 0) {
+                swal.fire({
+                    title: "你确定要删除所选记录吗?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#00C292"
+                }).then(function (isConfirm) {
+                    if (isConfirm.value) {
+                        $.ajax({
+                            url: "/Home/DeleteLog",
+                            type: "post",
+                            data: {
+                                ids: arr,
+                            }
+                        }).done(function (res) {
+                            if (res.result == "ok") {
+                                swal.fire({
+                                    title: "删除成功!",
+                                    icon: "success",
+                                    showCancelButton: false,
+                                    confirmButtonText: "Yes",
+                                    cancelButtonText: "No",
+                                    confirmButtonColor: "#00C292"
+                                }).then(function () {
+                                    location.reload();
+                                }).catch()
+                            }
+                            else {
+                                swal.fire({
+                                    title: "删除失败!",
+                                    icon: "warning",
+                                    showCancelButton: false,
+                                    confirmButtonText: "Yes",
+                                    cancelButtonText: "No",
+                                    confirmButtonColor: "#00C292"
+                                }).then(function () {
+                                }).catch()
+                            }
+                        })
+                    }
+                }).catch();
+            } else {
+                swal.fire({
+                    title: "请选择要删除的记录!",
+                    icon: "warning",
+                    showCancelButton: false,
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#00C292"
+                }).then(function () {
+                }).catch()
+            }
+        })
+    </script>
+}
+

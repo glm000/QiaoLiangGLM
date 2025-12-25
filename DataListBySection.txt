@@ -1,0 +1,85 @@
+IProjectManager projectManager = new ProjectManager();
+            if (beginTime == null || beginTime == "")
+            {
+                beginTime = "1990-01-01 00:00:00";
+            }
+            else
+            {
+                ViewBag.beginTime = beginTime;
+            }
+            if (endTime == null || endTime == "")
+            {
+                endTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            }
+            else
+            {
+                ViewBag.endTime = endTime;
+            }
+            ViewBag.Shafts = new List<MVCSite.Models.Home.SelectViewModel>
+            {
+                new Models.Home.SelectViewModel() { Id = "2", Name = "2号竖井" },
+                new Models.Home.SelectViewModel() { Id = "4", Name = "4号竖井" }
+            };
+            ViewBag.Factors = new List<MVCSite.Models.Home.SelectViewModel>
+            {
+                new Models.Home.SelectViewModel() { Id = "2", Name = "应变" },
+                new Models.Home.SelectViewModel() { Id = "3", Name = "位移" },
+                new Models.Home.SelectViewModel() { Id = "4", Name = "振动" },
+                new Models.Home.SelectViewModel() { Id = "5", Name = "压力" },
+                new Models.Home.SelectViewModel() { Id = "6", Name = "钢筋应力" }
+            };
+            if (shaftSelect == null || shaftSelect == "")
+            {
+                shaftSelect = "2";
+            }
+            ViewBag.ShaftId = shaftSelect;
+            if (factorSelect == null || factorSelect == "")
+            {
+                factorSelect = "2";
+            }
+            ViewBag.FactorId = factorSelect;
+            ViewBag.Engineerings = await projectManager.GetEngineeringSites();
+            if (engSelect == null || engSelect == "")
+            {
+                engSelect = "2";
+            }
+            ViewBag.EngId = engSelect;
+            ViewBag.Sections = await projectManager.GetSectionsByEngId(long.Parse(engSelect), shaftSelect);
+            if (sectionSelect == null || sectionSelect == "")
+            {
+                try
+                {
+                    sectionSelect = ((List<SectionDto>)ViewBag.SectionSelect).First().Id.ToString();
+                }
+                catch
+                {
+                    sectionSelect = "";
+                }
+            }
+            ViewBag.SectionId = sectionSelect;
+            if (factorSelect == "2")// 应变
+            {
+                return View();
+            }
+            else if (factorSelect == "3")// 位移
+            {
+                return View();
+            }
+            else if (factorSelect == "4")// 振动
+            {
+                var datas = await projectManager.GetVibrationDatas(long.Parse(sectionSelect), Convert.ToDateTime(beginTime), Convert.ToDateTime(endTime),pageIndex-1,pageSize);
+                var count = await projectManager.GetVibrationDatasCount(long.Parse(sectionSelect), Convert.ToDateTime(beginTime), Convert.ToDateTime(endTime));
+                return View(new PagedList<VibrationDto>(datas, pageIndex, pageSize, count));
+            }
+            else if (factorSelect == "5")// 压力
+            {
+                return View();
+            }
+            else if (factorSelect == "6")// 钢筋应力
+            {
+                return View();
+            }
+            else
+            {
+                return View();
+            }

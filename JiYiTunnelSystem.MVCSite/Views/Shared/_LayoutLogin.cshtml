@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>集义隧道监控平台</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/login")
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div>
+        <div class="page-title"><label>集义隧道监控平台</label></div>
+        <div class="page-bd">
+            <header><h1>@ViewBag.Title</h1></header>
+            <div class="page-box">
+                @RenderBody()
+            </div>
+        </div>
+        <footer class="footer-copyright-area copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footer-copy-right">
+                            <p>
+                                <a target="_blank" href="http://beian.miit.gov.cn">网站备案号：晋ICP备2021009942号</a>@*http://sc.chinaz.com/moban/*@
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

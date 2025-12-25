@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="05/19/2021 22:25:28" ReportInfo.Modified="06/16/2021 10:23:27" ReportInfo.CreatorVersion="2021.1.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+using FastReport.MSChart;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void Table1_ManualBuild(object sender,EventArgs e)
+    {
+      Table1.PrintRow(0);
+      Table1.PrintColumns();
+    } 
+    
+    private void Text19_AfterData(object sender, EventArgs e)
+    {
+      int totalPages=(int)Report.GetVariableValue(&quot;TotalPages&quot;);
+      if(totalPages == 1)
+      {
+        Text19.Visible=false;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="Connection" ConnectionString="rijcmlqomabmqtwD7y3BaVO988Xrm2R/Wl/cBcqof9hX+E4DAbuzSt92EY46wQBCfK3v7i21BQwvc9ZKIxkiftr6Rg83JlxPGfqxZRJnal/wnLbjYHSJkAXdI/Hnnu66sl+95Cp43S0u2tNMj+zvx7aMG7yYQ==" CommandTimeout="0">
+      <TableDataSource Name="engineeringsites" DataType="System.Int32" Enabled="true" TableName="engineeringsites">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="StrainAlarmValue" DataType="System.Decimal"/>
+        <Column Name="StrainContorlValue" DataType="System.Decimal"/>
+        <Column Name="OffsetAlarmValue" DataType="System.Decimal"/>
+        <Column Name="OffsetControlValue" DataType="System.Decimal"/>
+        <Column Name="VibrationAlarmValue" DataType="System.Decimal"/>
+        <Column Name="VibrationControlValue" DataType="System.Decimal"/>
+        <Column Name="SteelStressAlarmValue" DataType="System.Decimal"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="sections" DataType="System.Int32" Enabled="true" TableName="sections">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="Shaft" DataType="System.String"/>
+        <Column Name="EngId" DataType="System.Int64"/>
+        <Column Name="SectionNumber" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="sensors" DataType="System.Int32" Enabled="true" TableName="sensors">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="SectionId" DataType="System.Int64"/>
+        <Column Name="SensorType" DataType="System.String"/>
+        <Column Name="SensorNumber" DataType="System.String"/>
+        <Column Name="InitialValue" DataType="System.Decimal"/>
+        <Column Name="Comment" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="alarmlogs" DataType="System.Int32" Enabled="true" TableName="alarmlogs">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="SectionId" DataType="System.Int64"/>
+        <Column Name="SensorId" DataType="System.Int64"/>
+        <Column Name="Data" DataType="System.Decimal"/>
+        <Column Name="Grade" DataType="System.SByte"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="vibrations" DataType="System.Int32" Enabled="true" TableName="vibrations">
+        <Column Name="Id" DataType="System.Int64"/>
+        <Column Name="SectionId" DataType="System.Int64"/>
+        <Column Name="Data1" DataType="System.Decimal"/>
+        <Column Name="Data2" DataType="System.Decimal"/>
+        <Column Name="Data3" DataType="System.Decimal"/>
+        <Column Name="Data4" DataType="System.Decimal"/>
+        <Column Name="Data5" DataType="System.Decimal"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="IsDeleted" DataType="System.SByte"/>
+      </TableDataSource>
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select max(Data1) 速度峰值,SensorNumber,eng.Name,Shaft,SensorType,VibrationAlarmValue 控制值,v.CreateTime 时间&#13;&#10;from jiyitunnelsystem.vibrations v&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=v.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;where v.CreateTime &gt; str_to_date(@zsTime,'%Y-%m-%d %H:%i:%s') and v.CreateTime &lt; str_to_date(@zsTime2,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by sen.SensorNumber&#13;&#10;having SensorNumber like '%1' and SensorType='ZD' and Shaft=@shaft&#13;&#10;union all&#13;&#10;select max(Data2),SensorNumber,eng.Name,Shaft,SensorType,VibrationAlarmValue,v.CreateTime&#13;&#10;from jiyitunnelsystem.vibrations v&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=v.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;where v.CreateTime &gt; str_to_date(@zsTime,'%Y-%m-%d %H:%i:%s') and v.CreateTime &lt; str_to_date(@zsTime2,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by sen.SensorNumber&#13;&#10;having SensorNumber like '%2' and SensorType='ZD' and Shaft=@shaft&#13;&#10;union all&#13;&#10;select max(Data3),SensorNumber,eng.Name,Shaft,SensorType,VibrationAlarmValue,v.CreateTime&#13;&#10;from jiyitunnelsystem.vibrations v&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=v.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;where v.CreateTime &gt; str_to_date(@zsTime,'%Y-%m-%d %H:%i:%s') and v.CreateTime &lt; str_to_date(@zsTime2,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by sen.SensorNumber&#13;&#10;having SensorNumber like '%3' and SensorType='ZD' and Shaft=@shaft&#13;&#10;union all&#13;&#10;select max(Data4),SensorNumber,eng.Name,Shaft,SensorType,VibrationAlarmValue,v.CreateTime&#13;&#10;from jiyitunnelsystem.vibrations v&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=v.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;where v.CreateTime &gt; str_to_date(@zsTime,'%Y-%m-%d %H:%i:%s') and v.CreateTime &lt; str_to_date(@zsTime2,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by sen.SensorNumber&#13;&#10;having SensorNumber like '%4' and SensorType='ZD' and Shaft=@shaft&#13;&#10;union all&#13;&#10;select max(Data5),SensorNumber,eng.Name,Shaft,SensorType,VibrationAlarmValue,v.CreateTime&#13;&#10;from jiyitunnelsystem.vibrations v&#13;&#10;inner join jiyitunnelsystem.sections sec on sec.Id=v.SectionId&#13;&#10;inner join jiyitunnelsystem.engineeringsites eng on sec.EngId=eng.Id&#13;&#10;inner join jiyitunnelsystem.sensors sen on sen.SectionId=sec.Id&#13;&#10;where v.CreateTime &gt; str_to_date(@zsTime,'%Y-%m-%d %H:%i:%s') and v.CreateTime &lt; str_to_date(@zsTime2,'%Y-%m-%d %H:%i:%s')&#13;&#10;group by sen.SensorNumber&#13;&#10;having SensorNumber like '%5' and SensorType='ZD' and Shaft=@shaft&#13;&#10;order by SensorNumber asc;">
+        <Column Name="速度峰值" DataType="System.Decimal"/>
+        <Column Name="SensorNumber" DataType="System.String"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Shaft" DataType="System.String"/>
+        <Column Name="SensorType" DataType="System.String"/>
+        <Column Name="控制值" DataType="System.Decimal"/>
+        <Column Name="时间" DataType="System.DateTime"/>
+        <CommandParameter Name="zsTime" DataType="254" Expression="[zsTime]"/>
+        <CommandParameter Name="zsTime2" DataType="254" Expression="[zsTime2]"/>
+        <CommandParameter Name="shaft" DataType="254" Expression="[shaft]"/>
+      </TableDataSource>
+      <TableDataSource Name="Table2" DataType="System.Int32" Enabled="true" SelectCommand="select Data1,SensorNumber,SensorType,v.CreateTime&#10;from jiyitunnelsystem.vibrations v&#10;inner join jiyitunnelsystem.sensors s&#10;on v.SectionId=s.SectionId&#10;where v.CreateTime&gt;&quot;2021-05-17 15:27:50.300&quot;&#10;having SensorNumber like '%1' and SensorType='ZD'&#10;union all&#10;select Data2,SensorNumber,SensorType,v.CreateTime&#10;from jiyitunnelsystem.vibrations v&#10;inner join jiyitunnelsystem.sensors s&#10;on v.SectionId=s.SectionId&#10;where v.CreateTime&gt;&quot;2021-05-17 15:27:50.300&quot;&#10;having SensorNumber like '%2' and SensorType='ZD'&#10;order by CreateTime;">
+        <Column Name="Data1" DataType="System.Decimal"/>
+        <Column Name="SensorNumber" DataType="System.String"/>
+        <Column Name="SensorType" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+      </TableDataSource>
+    </MySqlDataConnection>
+    <Parameter Name="time" DataType="System.String" Expression="&quot;2021-05-24 15:13:16&quot;"/>
+    <Parameter Name="zsTime" DataType="System.String" Expression="&quot;2021-06-11 15:10:00&quot;"/>
+    <Parameter Name="zsTime2" DataType="System.String" Expression="&quot;2021-06-11 15:30:00&quot;"/>
+    <Parameter Name="shaft" DataType="System.String" Expression="&quot;4&quot;"/>
+    <Parameter Name="value" DataType="System.String" Expression="&quot;35.00&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="宋体, 60pt" Watermark.TextFill.Color="40, 255, 255, 255" Watermark.ShowTextOnTop="false">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Left="189" Top="9.45" Width="311.85" Height="18.9" Anchor="Top" Text="爆破震速监测报表" HorzAlign="Center" Font="宋体, 14.25pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="41.8" Width="718.2" Height="132.3">
+      <TextObject Name="Text2" Left="37.8" Top="9.45" Width="453.6" Height="18.9" Text="监测工程名称：浩吉铁路集义隧道竖井整治自动化监测" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text3" Left="37.8" Top="37.8" Width="453.6" Height="18.9" Text="监测区段：[Switch([shaft]==&quot;2&quot;,&quot;2#斜井、正洞DK490+410～DK490+670、2#应急封堵墙&quot;,[shaft]==&quot;4&quot;,&quot;4#斜井、正洞DK493+880～DK494+080、4#应急封堵墙&quot;)]" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text4" Left="37.8" Top="66.15" Width="453.6" Height="18.9" Text="监测时间：[FormatDateTime(ToDateTime([zsTime]),&quot;yyyy年MM月dd日&quot;)]-[FormatDateTime(ToDateTime([zsTime2]),&quot;yyyy年MM月dd日&quot;)]" Font="宋体, 10.5pt"/>
+      <TableObject Name="Table1" Left="37.8" Top="94.5" Width="642.6" Height="37.8" ManualBuildEvent="Table1_ManualBuild">
+        <TableColumn Name="Column2" Width="94.5"/>
+        <TableColumn Name="Column3" Width="75.6"/>
+        <TableColumn Name="Column4" Width="75.6"/>
+        <TableColumn Name="Column5" Width="94.5"/>
+        <TableColumn Name="Column6" Width="151.2"/>
+        <TableColumn Name="Column7" Width="151.2"/>
+        <TableRow Name="Row1" Height="37.8">
+          <TableCell Name="Cell2" Border.Lines="All" Text="测点编号" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="速度峰值&#13;&#10;(mm/s)" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="控制值&#13;&#10;(mm/s)" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="预警&#13;&#10;等级" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="位置" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+          <TableCell Name="Cell31" Border.Lines="All" Text="时间" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data2" Top="178.1" Width="718.2" Height="30.24" DataSource="Table">
+      <TextObject Name="Text12" Left="37.8" Width="94.5" Height="30.24" Border.Lines="All" BeforePrintEvent="Text7_BeforePrint" Text="[Table.SensorNumber]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text13" Left="132.3" Width="75.6" Height="30.24" Border.Lines="All" BeforePrintEvent="Text7_BeforePrint" Text="[Table.速度峰值]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text14" Left="207.9" Width="75.6" Height="30.24" Border.Lines="All" BeforePrintEvent="Text7_BeforePrint" Text="[Switch(Substring(Text12.Text,0,2)==&quot;2X&quot;&amp;&amp;ToInt32(Substring(Text12.Text,4,2))&lt;40,[value],Substring(Text12.Text,0,3)==&quot;3X0&quot;,[value],Substring(Text12.Text,0,2)!=&quot;&quot;,[Table.控制值])]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text15" Left="283.5" Width="94.5" Height="30.24" Border.Lines="All" BeforePrintEvent="Text7_BeforePrint" Text="[Switch(ToDecimal([Table.速度峰值])&lt;ToDecimal(Text14.Text),&quot;无&quot;,ToDecimal([Table.速度峰值])&gt;=ToDecimal(Text14.Text),&quot;预警&quot;)]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+      <TextObject Name="Text16" Left="378" Width="151.2" Height="30.24" Border.Lines="All" BeforePrintEvent="Text7_BeforePrint" Text="[Table.Shaft]#[Table.Name]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text17" Left="529.2" Width="151.2" Height="30.24" Border.Lines="All" BeforePrintEvent="Text7_BeforePrint" Text="[Table.时间]" HorzAlign="Center" VertAlign="Center" Font="宋体, 10.5pt"/>
+    </DataBand>
+    <DataBand Name="Data3" Top="212.34" Width="718.2" Height="37.8">
+      <TextObject Name="Text18" Left="37.8" Width="642.6" Height="37.8" Border.Lines="All" Text="技术负责人：                 监测项目负责人：" VertAlign="Center" Font="宋体, 12pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="254.14" Width="718.2" Height="28.35">
+      <TextObject Name="Text19" Left="604.8" Top="9.45" Width="94.5" Height="18.9" AfterDataEvent="Text19_AfterData" Text="[Page#]" HorzAlign="Right" Font="宋体, 9pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

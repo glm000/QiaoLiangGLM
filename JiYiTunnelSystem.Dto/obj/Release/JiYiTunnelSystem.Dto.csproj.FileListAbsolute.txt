@@ -1,0 +1,12 @@
+D:\VS2017\练习3\JiYiTunnelSystem\JiYiTunnelSystem.Dto\bin\Release\JiYiTunnelSystem.Dto.dll
+D:\VS2017\练习3\JiYiTunnelSystem\JiYiTunnelSystem.Dto\bin\Release\JiYiTunnelSystem.Dto.pdb
+D:\VS2017\练习3\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.csprojAssemblyReference.cache
+D:\VS2017\练习3\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.csproj.CoreCompileInputs.cache
+D:\VS2017\练习3\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.dll
+D:\VS2017\练习3\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.pdb
+E:\Document\VS2019\Test2\JiYiTunnelSystem\JiYiTunnelSystem.Dto\bin\Release\JiYiTunnelSystem.Dto.dll
+E:\Document\VS2019\Test2\JiYiTunnelSystem\JiYiTunnelSystem.Dto\bin\Release\JiYiTunnelSystem.Dto.pdb
+E:\Document\VS2019\Test2\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.csproj.AssemblyReference.cache
+E:\Document\VS2019\Test2\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.csproj.CoreCompileInputs.cache
+E:\Document\VS2019\Test2\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.dll
+E:\Document\VS2019\Test2\JiYiTunnelSystem\JiYiTunnelSystem.Dto\obj\Release\JiYiTunnelSystem.Dto.pdb

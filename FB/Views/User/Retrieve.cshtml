@@ -1,0 +1,128 @@
+﻿@model JiYiTunnelSystem.MVCSite.Models.User.RetrieveViewModel
+
+@{
+    ViewBag.Title = "找回密码";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using (Html.BeginForm("Retrieve","User",FormMethod.Post,new { @id="retrieve"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VerifyCode, htmlAttributes: new { @class = "control-label" })
+            <div class="">
+                @Html.EditorFor(model => model.VerifyCode, new { htmlAttributes = new { @class = "form-verify", @placeholder = "验证码区分大小写" } })
+                <span class="verify-span">获取验证码</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPwd, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.ConfirmPwd, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <div class="">
+                <input type="button" onclick="checkAll(this.form)" value="提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交" class="btn btn-success form-btn" />
+            </div>
+        </div>
+    </div>
+}
+
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+@section scripts{
+    @Scripts.Render("~/bundles/dialog")
+    <script>
+        $('.verify-span').click(function () {
+            var name = document.getElementById('Name');
+            var mail = document.getElementById('Email');
+            if (name.value == "") {
+                showMessage("姓名不能为空");
+            }
+            else if (!(/^[\u4E00-\u9FA5]{2,5}$/).test(name.value)) {
+                showMessage("请输入真实姓名")
+            }
+            else if (mail.value == "") {
+                showMessage("邮箱不能为空");
+            }
+            else if (!(/^[a-zA-Z0-9]+([-_.][a-zA-Z0-9]+)*@@[a-zA-Z0-9]+([-_.][a-zA-Z0-9]+)*\.[a-z]{2,}$/).test(mail.value)) {
+                showMessage("邮箱格式错误");
+            }
+            else {
+                $('#retrieve').submit();
+            }
+        });
+        function checkAll(obj) {
+            var name = document.getElementById('Name');
+            var mail = document.getElementById('Email');
+            var pwd = document.getElementById('Password');
+            var conpwd = document.getElementById('ConfirmPwd');
+            var verify = document.getElementById('VerifyCode');
+            if (name.value == "") {
+                showMessage("姓名不能为空");
+            }
+            else if (!(/^[\u4E00-\u9FA5]{2,5}$/).test(name.value)) {
+                showMessage("请输入真实姓名")
+            }
+            else if (mail.value == "") {
+                showMessage("邮箱不能为空");
+            }
+            else if (!(/^[a-zA-Z0-9]+([-_.][a-zA-Z0-9]+)*@@[a-zA-Z0-9]+([-_.][a-zA-Z0-9]+)*\.[a-z]{2,}$/).test(mail.value)) {
+                showMessage("邮箱格式错误");
+            }
+            else if (verify.value == "") {
+                showMessage("验证码不能为空");
+            }
+            else if (pwd.value == "") {
+                showMessage("密码不能为空");
+            }
+            else if (!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\\W]{6,10}$/).test(pwd.value)) {
+                showMessage("密码为6-10位字母和数字组合");
+            }
+            else if (conpwd.value == "") {
+                showMessage("确认密码不能为空");
+            }
+            else if (pwd.value != conpwd.value) {
+                showMessage("密码不一致");
+            }
+            else {
+                obj.submit();
+            }
+        }
+
+        function showMessage(err) {
+            swal.fire({
+                title: err,
+                icon: "warning",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonColor: "#00C292",
+                cancelButtonText: "确认",
+            }).then(function (isConfirm) {
+                if (isConfirm.value) {
+                }
+            }).catch({
+            });
+        }
+    </script>
+}

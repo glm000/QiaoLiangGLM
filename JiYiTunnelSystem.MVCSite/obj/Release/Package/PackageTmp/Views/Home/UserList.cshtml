@@ -1,0 +1,35 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<JiYiTunnelSystem.Dto.UserDto>
+
+@{
+    ViewBag.Title = "权限管理";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mg-b-20">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd">
+                        <h2>@ViewBag.Title</h2>
+                    </div>
+                    <div class="table-responsive data-list tb-txt">
+                        <div id="tableData">
+                            @Html.Partial("_UserList", Model)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+
+@section scripts{
+    @{Html.RegisterMvcPagerScriptResource();}
+    @Scripts.Render("~/bundles/ajax")
+    @Scripts.Render("~/bundles/dialog")
+}

@@ -1,0 +1,268 @@
+﻿
+@{
+    ViewBag.Title = "FastReport";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mg-b-20">
+                <div class="form-element-list">
+                    @using (Ajax.BeginForm("VibraFR", "Home", new AjaxOptions { UpdateTargetId = "vibra",OnSuccess="onSuccess(data,status,xhr)" ,OnFailure = "onFailure(xhr,status,error)"}))
+                    {
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-sm-4">
+                            <span class="tb-select-txt">竖井:&nbsp;</span>
+                            <div class="bootstrap-select tb-select">
+                                <select id="shaftSelect" name="shaftSelect" class="selectpicker" onchange="changeShaft(this.value)">
+                                    <option value="2">2号竖井</option>
+                                    <option value="4">4号竖井</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4">
+                            <span class="tb-select-txt">监测因素:&nbsp;</span>
+                            <div class="bootstrap-select tb-select2">
+                                <select id="factorSelect" name="factorSelect" class="selectpicker" onchange="changeFactor(this.value)">
+                                    <option value="ZS">震速</option>
+                                    <option value="WY">位移</option>
+                                    <option value="YB">应变</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4" id="div_daySelect" style="display:none;">
+                            <span class="tb-select-txt">报表类型:&nbsp;</span>
+                            <div class="bootstrap-select tb-select2">
+                                <select id="daySelect" name="daySelect" class="selectpicker" onchange="changeDay(this.value)">
+                                    <option value="day">日报</option>
+                                    <option value="week">周报</option>
+                                    <option value="month">月报</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4" id="div_zsSelect">
+                            <div class="bootstrap-select tb-select2">
+                                <select id="zsSelect" name="zsSelect" class="selectpicker" onchange="changeZS(this.value)">
+                                    <option value="day">时间点</option>
+                                    <option value="days">时间段</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="div_time">
+                            <div class="form-group nk-datapk-ctm form-elet-mg">
+                                <div class="input-group">
+                                    <input type="text" id="zsTime" name="zsTime" placeholder="选择时间" class="form-control tb-txt" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="div_spantime" style="display:none">
+                            <div class="form-group nk-datapk-ctm form-elet-mg">
+                                <div class="input-group">
+                                    <input type="text" id="spanTime" name="spanTime" placeholder="选择时间" class="form-control tb-txt" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" id="div_daytime" style="display:none">
+                            <div class="form-group nk-datapk-ctm form-elet-mg">
+                                <div class="input-group">
+                                    <input type="text" id="dayTime" name="dayTime" placeholder="选择时间" class="form-control tb-txt" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 btn-xs pull-right">
+                            <input id="btn_query" type="submit" class="btn btn-success" value="生成" />
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 align-center">
+                <div id="vibra">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="text" style="display:none;" id="shaft_Hidden" name="shaft_Hidden"/>
+<input type="text" style="display:none;" id="factor_Hidden" name="factor_Hidden" />
+<input type="text" style="display:none;" id="day_Hidden" name="day_Hidden" />
+
+@section head{
+    @Styles.Render("~/Content/dialog")
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/ajax")
+    @Scripts.Render("~/bundles/dialog")
+    <script src="~/Scripts/laydate/laydate.js"></script>
+    <script>
+        laydate.render({
+            elem: '#zsTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#spanTime',
+            range: '-',
+            format:'yyyy.M.d'
+        });
+        laydate.render({
+            elem: '#dayTime',
+            format: 'yyyy-MM-dd'
+        });
+
+        $(document).ready(function () {
+            //if ($("#shaft_Hidden").val()) {
+            //    resumeSelect();
+            //}
+            $('#shaftSelect').selectpicker('refresh');
+            $('#factorSelect').selectpicker('refresh');
+            $('#daySelect').selectpicker('refresh');
+            $('#zsSelect').selectpicker('refresh');
+            $('#shaftSelect').selectpicker('refresh');
+
+            if ($('#factorSelect').val() == 'ZS') {
+                $('#div_daySelect').hide();
+                $('#div_daytime').hide();
+                $('#div_zsSelect').show();
+                if ($('#zsSelect').val() == 'day') {
+                    $('#div_time').show();
+                    $('#div_spantime').hide();
+                }
+                else {
+                    $('#div_spantime').show();
+                    $('#div_time').hide();
+                }
+            }
+            else {
+                $('#div_daySelect').show();
+                $('#div_zsSelect').hide();
+                $('#div_time').hide();
+                if ($('#daySelect').val() != 'day') {
+                    $('#div_spantime').show();
+                    $('#div_daytime').hide();
+                }
+                else {
+                    $('#div_spantime').hide();
+                    $('#div_daytime').show();
+                }
+            }
+        });
+
+        function resumeSelect() {
+            if ($('#shaft_Hidden').val())
+                $('#shaftSelect').selectpicker('val',$('#shaft_Hidden').val());
+            if ($('#day_Hidden').val())
+                $('#daySelect').selectpicker('val',$('#day_Hidden').val());
+            if ($('#factor_Hidden').val())
+                $('#factorSelect').selectpicker('val', $('#factor_Hidden').val());
+            if ($('#factorSelect').val() == 'ZS') {
+                $('#div_daySelect').hide();
+                $('#div_zsSelect').show();
+                if ($('#zsSelect').val() == 'day')
+                    $('#div_time').show();
+                else
+                    $('#div_spantime').show();
+            }
+            else {
+                $('#div_daySelect').show();
+                $('#div_zsSelect').hide();
+                $('#div_time').hide();
+                $('#div_spantime').hide();
+            }
+        }
+
+        function changeShaft(obj) {
+            //$('#shaft_Hidden').val(obj);
+        }
+
+        function changeDay(obj) {
+            //$('#day_Hidden').val(obj);
+            if (obj != 'day') {
+                $('#div_spantime').show();
+                $('#div_daytime').hide();
+            }
+            else {
+                $('#div_spantime').hide();
+                $('#div_daytime').show();
+            }
+        }
+
+        function changeFactor(obj) {
+            if (obj == 'ZS') {
+                $('#div_daySelect').hide();
+                $('#div_daytime').hide();
+                $('#zsSelect').show();
+                if ($('#zsSelect').val() == 'day') {
+                    $('#div_time').show();
+                    $('#div_spantime').hide();
+                }
+                else {
+                    $('#div_spantime').show();
+                    $('#div_time').hide();
+                }
+            }
+            else {
+                $('#div_time').hide();
+                $('#div_zsSelect').hide();
+                $('#div_daySelect').show();
+                if ($('#daySelect').val() != 'day') {
+                    $('#div_spantime').show();
+                    $('#div_daytime').hide();
+                }
+                else {
+                    $('#div_spantime').hide();
+                    $('#div_daytime').show();
+                }
+            }
+            //$('#factor_Hidden').val(obj);
+        }
+
+        function changeZS(obj) {
+            if (obj == 'day') {
+                $('#div_time').show();
+                $('#div_spantime').hide();
+            }
+            else {
+                $('#div_spantime').show();
+                $('#div_time').hide();
+            }
+        }
+
+        function onSuccess(data, status, xhr) {
+            if (data.res == "error") {
+                swal.fire({
+                    title: "生成失败!",
+                    icon: "warning",
+                    showCancelButton: false,
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#00C292"
+                }).then(function () {
+                }).catch()
+            }
+            else if (data.res == "time"){
+                swal.fire({
+                    title: "请选择时间!",
+                    icon: "warning",
+                    showCancelButton: false,
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#00C292"
+                }).then(function () {
+                }).catch()
+            }
+        }
+
+        function onFailure(xhr,status,error) {
+            swal.fire({
+                title: "生成失败!",
+                icon: "warning",
+                showCancelButton: false,
+                confirmButtonText: "Yes",
+                cancelButtonText: "No",
+                confirmButtonColor: "#00C292"
+            }).then(function () {
+            }).catch()
+        }
+    </script>
+}

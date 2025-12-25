@@ -1,0 +1,140 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<JiYiTunnelSystem.Dto.VibrationDto>
+
+@{
+    ViewBag.Title = "振动数据列表 (mm/s)";
+}
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 mg-b-20">
+                <div class="inbox-left-sd">
+                    <div class="compose-ml"><a class="btn">数据中心</a></div>
+                    <div class="inbox-status">
+                        <ul class="inbox-st-nav">
+                            <li><a href=@Url.Action("StrainListBySection", "Home")><i class="notika-icon notika-menu"></i>应变</a></li>
+                            <li><a href=@Url.Action("OffsetListBySection", "Home")><i class="notika-icon notika-menu"></i>位移</a></li>
+                            <li><a href=@Url.Action("VibrationListBySection", "Home")><i class="notika-icon notika-menu"></i>振动</a></li>
+                            <li><a href=@Url.Action("StressListBySection", "Home")><i class="notika-icon notika-menu"></i>压力</a></li>
+                            <li><a href=@Url.Action("SteelStrainListBySection", "Home")><i class="notika-icon notika-menu"></i>钢筋应力</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 mg-b-20">
+                <div class="form-element-list">
+                    @using (Ajax.BeginForm("VibrationListBySection", new RouteValueDictionary { { "beginTime", "" } }, new AjaxOptions { UpdateTargetId = "tableData", HttpMethod = "Get", LoadingElementId = "loading" }, new RouteValueDictionary { { "id", "search" } }))
+                    {
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-4">
+                                <span class="tb-select-txt">竖井:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    <select id="shaftSelect" name="shaftSelect" class="selectpicker" onchange="changeShaft()">
+                                        <option value="2">2号竖井</option>
+                                        <option value="4">4号竖井</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-5">
+                                <span class="tb-select-txt">部位:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    <select id="engSelect" name="engSelect" class="selectpicker" onchange="changeEngineering(this.value)">
+                                        <option value="2">初支与二衬背后</option>
+                                        <option value="4">斜井</option>
+                                        <option value="1">应急封堵墙</option>
+                                        <option value="3">正洞</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4">
+                                <span class="tb-select-txt">截面:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    <div id="sectionList">
+                                        @{ Html.RenderAction("SectionSelect", new { engId = 2, shaft = 2 });}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4">
+                                <div class="form-group nk-datapk-ctm form-elet-mg">
+                                    <div class="input-group">
+                                        <input type="text" id="beginTime" name="beginTime" class="form-control tb-txt" value="@ViewBag.beginTime" placeholder="开始时间" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4">
+                                <div class="form-group nk-datapk-ctm form-elet-mg">
+                                    <div class="input-group">
+                                        <input type="text" id="endTime" name="endTime" class="form-control tb-txt" value="@ViewBag.endTime" placeholder="结束时间" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-2">
+                                <input id="btn_query" type="submit" class="btn btn-success" value="查询" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd"><h2>@ViewBag.Title</h2></div>
+                    <div class="table-responsive data-list tb-txt">
+                        <div id="tableData">
+                            @Html.Partial("VData", Model)
+                        </div>
+
+                        <div id="loading" class="loading" style="display:none">
+                            <div class="pic">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @{Html.RegisterMvcPagerScriptResource();}
+    @Scripts.Render("~/bundles/ajax")
+    <script src="~/Scripts/laydate/laydate.js"></script>
+    <script>
+        laydate.render({
+            elem: '#beginTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#endTime',
+            type: 'datetime'
+        });
+
+        function changeShaft() {
+            var engId = document.getElementById('engSelect').value;
+            changeEngineering(engId);
+        }
+
+        function changeEngineering(engId) {
+            var shaft = document.getElementById('shaftSelect').value;
+            var str = '/Home/SectionSelect?engId=' + engId + '&shaft=' + shaft;
+            var obj = document.getElementById('sectionList');
+            obj.innerHTML = "";
+            $('#sectionList').load(str);
+            var interval_temp = setInterval(function () {
+                if (obj.innerHTML) {
+                    clearInterval(interval_temp);
+                    $('.selectpicker').selectpicker('refresh');
+                    $('#search').submit();
+                }
+            }, 100)
+        }
+
+        function changeSection(obj) {
+            $('#search').submit();
+        }
+    </script>
+}

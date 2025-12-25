@@ -1,0 +1,272 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<JiYiTunnelSystem.Dto.AlarmLogDto>
+
+@{
+    ViewBag.Title = "报警记录";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            @{Html.RenderPartial("_PartialAlarm");}
+            @using (Html.BeginForm("AlarmLogList", "Home", FormMethod.Get, new { @id = "search" }))
+            {
+                <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 mg-b-20">
+                    <div class="form-element-list">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-4">
+                                <span class="tb-select-txt">竖井:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    @Html.DropDownList("shaftSelect", new SelectList(ViewBag.Shafts, "Id", "Name", ViewBag.ShaftSelect), new { @class = "selectpicker", @onchange = "changeShaft(this.value)" })
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-5">
+                                <span class="tb-select-txt">部位:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    @Html.DropDownList("engSelect", new SelectList(ViewBag.Engineerings, "Id", "Name", ViewBag.EngSelect), new { @class = "selectpicker", @onchange = "changeEngineering(this.value)" })
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-4">
+                                <span class="tb-select-txt">截面:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    <div id="sectionList">
+                                        @Html.DropDownList("sectionSelect", new SelectList(ViewBag.Sections, "Id", "SectionNum", ViewBag.SectionSelect), new { @class = "selectpicker", @onchange = "changeSection(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-4">
+                                <span class="tb-select-txt">因素:&nbsp;</span>
+                                <div class="bootstrap-select tb-select">
+                                    <div id="sectionList">
+                                        @Html.DropDownList("typeSelect", new SelectList(ViewBag.Types, "Id", "Name", ViewBag.TypeSelect), new { @class = "selectpicker", @onchange = "changeType(this.value)" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 mg-b-20">
+                    <div class="form-element-list">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-1"></div>
+                            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                                <div class="form-group nk-datapk-ctm form-elet-mg">
+                                    <div class="input-group">
+                                        @if (ViewBag.beginTime != "")
+                                        {
+                                            <input type="text" id="beginTime" name="beginTime" class="form-control tb-txt" value="@ViewBag.beginTime" placeholder="开始时间" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" id="beginTime" name="beginTime" class="form-control tb-txt" placeholder="开始时间" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                                <div class="form-group nk-datapk-ctm form-elet-mg">
+                                    <div class="input-group">
+                                        @if (ViewBag.endTime != "")
+                                        {
+                                            <input type="text" id="endTime" name="endTime" class="form-control tb-txt" value="@ViewBag.endTime" placeholder="结束时间" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" id="endTime" name="endTime" class="form-control tb-txt" placeholder="结束时间" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-2 col-sm-2 col-xs-12 btn-xs">
+                                <input id="btn_query" type="submit" class="btn btn-success" value="查询" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd"><h2>@ViewBag.Title</h2></div>
+                    <div class="table-responsive data-list tb-txt">
+                        @if (Model.Count > 0)
+                        {
+                            <div class="table table-striped">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Shaft)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EngName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SectionNum)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SensorNum)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Type)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Data)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Grade)
+                                        </th>
+                                        <th class="th-order">
+                                            @Html.DisplayNameFor(model => model.CreateTime)
+                                            <i class="glyphicon glyphicon-sort"></i>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Shaft)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EngName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SectionNum)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SensorNum)
+                                            </td>
+                                            <td>
+                                                @if (item.Type == "YB")
+                                                { @Html.DisplayName("应变")}
+                                                else if (item.Type == "WY")
+                                                {@Html.DisplayName("位移") }
+                                                else if (item.Type == "ZD")
+                                                { @Html.DisplayName("振动")}
+                                                else if (item.Type == "YL")
+                                                { @Html.DisplayName("压力")}
+                                                else if (item.Type == "GJ") { @Html.Display("钢筋应力")}
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Data)
+                                                @if (item.Type == "YB")
+                                                {@Html.DisplayName(" ×10ˉ⁵")}
+                                                else if (item.Type == "WY")
+                                                {@Html.DisplayName(" mm") }
+                                                else if (item.Type == "ZD")
+                                                { @Html.DisplayName(" mm/s")}
+                                                else if (item.Type == "YL")
+                                                { @Html.DisplayName(" Mpa")}
+                                                else if (item.Type == "GJ")
+                                                { @Html.DisplayName(" MPa")}
+                                            </td>
+                                            <td>
+                                                @if (item.Grade == 0) { @Html.DisplayName("预警")}
+                                                @if (item.Grade == 1) { @Html.DisplayName("危险")}
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CreateTime)
+                                            </td>
+                                        </tr>
+                                    }
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="8">
+                                                <nav>
+                                                    @Html.Pager(Model, new PagerOptions {
+                                                   PageIndexParameterName = "pageIndex",ContainerTagName = "ul", CssClass = "pagination",
+                                                   CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+                                                   DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+                                                   PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager",
+                                                   RouteValues=new RouteValueDictionary { { "beginTime",ViewBag.beginTime }, { "endTime",ViewBag.endTime},{ "typeSelect",ViewBag.TypeSelect},
+                                                       { "shaftSelect",ViewBag.ShaftSelect},{ "engSelect",ViewBag.EngSelect},{ "sectionSelect",ViewBag.SectionSelect} }
+                                               })
+                                                </nav>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {<span class="tb-err-txt">无数据</span>}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script src="~/Scripts/laydate/laydate.js"></script>
+    <script>
+        {
+            window.shaft = '0';
+        }
+        laydate.render({
+            elem: '#beginTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#endTime',
+            type: 'datetime'
+        });
+        function changeShaft(shaftNum) {
+            shaft = shaftNum;
+            var engId = document.getElementById('engSelect').value;
+            changeEngineering(engId);
+        }
+
+        function changeEngineering(engId) {
+            var str = '/Home/SectionSelect2?engId=' + engId + '&shaft=' + shaft;
+            var obj = document.getElementById('sectionSelect');
+            obj.innerHTML = "";
+            $('#sectionSelect').load(str);
+            var interval_temp = setInterval(function () {
+                if (obj.innerHTML) {
+                    clearInterval(interval_temp);
+                    $('.selectpicker').selectpicker('refresh');
+                    $('#search').submit();
+                }
+            }, 100)
+        }
+
+        function changeSection(sectionId) {
+            $('#search').submit();
+        }
+        function changeType(type) {
+            $('#search').submit();
+        }
+
+        $('.th-order').click(function () {
+            timeOrder = false;
+            var str = location.href;
+            var reg = RegExp(/timeOrder=false/);
+            if (reg.test(str)) {
+                var href = str.match(/.+(?=timeOrder=false)/);
+                if (str.match(/(?<=timeOrder=false&).+/)) {
+                    href += str.match(/(?<=timeOrder=false&).+/);
+                }
+                location.href = href;
+            }
+            else {
+                if (str.indexOf('?') != -1) {
+                    if (str.indexOf('=') != -1) {
+                        if (str.substring(str.length - 1, str.length) == '&') {
+                            str = str.substring(0, str.length - 1);
+                        }
+                        str += '&timeOrder=' + timeOrder;
+                    }
+                    else {
+                        str += 'timeOrder=' + timeOrder;
+                    }
+                }
+                else {
+                    str += '?timeOrder=' + timeOrder;
+                }
+                location.href = str;
+            }
+        })
+    </script>
+}

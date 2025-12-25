@@ -1,0 +1,180 @@
+﻿@model JiYiTunnelSystem.Dto.AlarmSettingDto
+
+@{
+    ViewBag.Title = "报警设置";
+}
+
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            @{Html.RenderPartial("_PartialAlarm");}
+            <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12 mg-b-20">
+                <div class="data-table-list sm-res-mg-t-30">
+                    <div class="basic-tb-hd">
+                        <h2>@ViewBag.Title</h2>
+                    </div>
+                    <div>
+                        @using (Html.BeginForm("AlarmSetting", "Home", FormMethod.Post, new { @id = "save" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-example-int form-horizental">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-1"></div>
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+                                            <div class="themesaller-forms mg-t-30">
+                                                <div class="spacer-b16a">
+                                                    @Html.LabelFor(model => model.OffsetAlarm, "位移预警 mm")
+                                                    @Html.EditorFor(model => model.OffsetAlarm, new { htmlAttributes = new { @class = "slider-input" } })
+                                                </div>
+                                                <div class="slider-wrapper yellow-slider">
+                                                    <div id="slider_offset1"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2"></div>
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+                                            <div class="themesaller-forms mg-t-30">
+                                                <div class="spacer-b16a">
+                                                    @Html.LabelFor(model => model.OffsetControl, "位移控制 mm")
+                                                    @Html.EditorFor(model => model.OffsetControl, new { htmlAttributes = new { @class = "slider-input form-thread" } })
+                                                </div>
+                                                <div class="slider-wrapper yellow-slider">
+                                                    <div id="slider_offset2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-1"></div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+                                        <div class="themesaller-forms mg-t-30">
+                                            <div class="spacer-b16a">
+                                                @Html.LabelFor(model => model.StrainAlarm, "应变预警 ×10ˉ⁶")
+                                                @Html.EditorFor(model => model.StrainAlarm, new { htmlAttributes = new { @class = "slider-input" } })
+                                            </div>
+                                            <div class="slider-wrapper yellow-slider">
+                                                <div id="slider_strain1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2"></div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+                                        <div class="themesaller-forms mg-t-30">
+                                            <div class="spacer-b16a">
+                                                @Html.LabelFor(model => model.StrainControl, "应变控制 ×10ˉ⁶")
+                                                @Html.EditorFor(model => model.StrainControl, new { htmlAttributes = new { @class = "slider-input" } })
+                                            </div>
+                                            <div class="slider-wrapper yellow-slider">
+                                                <div id="slider_strain2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-1"></div>
+                                    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-8">
+                                        <div class="themesaller-forms mg-t-30">
+                                            <div class="spacer-b16a">
+                                                @Html.LabelFor(model => model.VibrationAlarm_YJ, "应急封堵墙振动预警 mm/s")
+                                                @Html.EditorFor(model => model.VibrationAlarm_YJ, new { htmlAttributes = new { @class = "slider-input" } })
+                                            </div>
+                                            <div class="slider-wrapper yellow-slider">
+                                                <div id="slider_vibration1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1"></div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-8">
+                                        <div class="themesaller-forms mg-t-30">
+                                            <div class="spacer-b16a">
+                                                @Html.LabelFor(model => model.StressAlarm, "压力预警 %")
+                                                @Html.EditorFor(model => model.StressAlarm, new { htmlAttributes = new { @class = "slider-input" } })
+                                            </div>
+                                            <div class="slider-wrapper yellow-slider">
+                                                <div id="slider_stress"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-1"></div>
+                                    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-8">
+                                        <div class="themesaller-forms mg-t-30">
+                                            <div class="spacer-b16a">
+                                                @Html.LabelFor(model => model.VibrationAlarm_LJ, "斜井与连接通道振动预警 mm/s")
+                                                @Html.EditorFor(model => model.VibrationAlarm_LJ, new { htmlAttributes = new { @class = "slider-input" } })
+                                            </div>
+                                            <div class="slider-wrapper yellow-slider">
+                                                <div id="slider_vibration3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1"></div>
+                                    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-8">
+                                        <div class="themesaller-forms mg-t-30">
+                                            <div class="spacer-b16a">
+                                                @Html.LabelFor(model => model.VibrationAlarm_ZD, "正洞与斜井振动预警 mm/s")
+                                                @Html.EditorFor(model => model.VibrationAlarm_ZD, new { htmlAttributes = new { @class = "slider-input" } })
+                                            </div>
+                                            <div class="slider-wrapper yellow-slider">
+                                                <div id="slider_vibration2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int form-horizental mg-t-30">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12"></div>
+                                        <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                                            <div class="nk-int-st">
+                                                <input type="button" onclick="isSave()" value="保存" class="btn btn-success notika-btn-success" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section head{
+    <link href="~/Content/themesaller-forms.css" rel="stylesheet" />
+    @Styles.Render("~/Content/dialog")
+}
+@section scripts{
+
+    <script src="~/Scripts/jquery-ui-touch-punch.min.js"></script>
+    <script src="~/Scripts/rangle-active.js"></script>
+    @Scripts.Render("~/bundles/dialog")
+    <script>
+        function isSave() {
+            swal.fire({
+                title: "是否保存更改",
+                icon: "question",
+                showConfirmButton: true,
+                showCancelButton: true,
+                cancelButtonText: "否",
+                cancelButtonColor: "#626262",
+                confirmButtonText: "是",
+                confirmButtonColor:"#00C292"
+            }).then(function (isConfirm) {
+                if (isConfirm.value) {
+                    $('#save').submit();
+                }
+            }).catch(function () { });
+        }
+    </script>
+}

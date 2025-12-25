@@ -1,0 +1,1291 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="data-chart-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="inbox-left-sd">
+                    <div id="btnshaft_area" class="btnshaft-area">
+                        <div class="row">
+                            <span class="factor-span"></span>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mg-b-15">
+                                <button id="btn_shaft2" class="btn btn-success notika-btn-success btn-shaft2" onclick="btn_Shaft2()">2号竖井</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mg-b-15">
+                                <button id="btn_shaft4" class="btn btn-gray notika-btn-gray btn-shaft4" onclick="btn_Shaft4()">4号竖井</button>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="factor-span">监测因素:</span>
+                    <div class="bootstrap-select mg-b-20 select-pad">
+                        <select id="factorSelect" class="selectpicker" onchange="changeFactor(this.value)">
+                            <option value="1">监测点分布</option>
+                            <option value="2">应变</option>
+                            <option value="3">位移</option>
+                            <option value="4">振动</option>
+                            <option value="5">压力</option>
+                            <option value="6">钢筋应力</option>
+                        </select>
+                    </div>
+                    <div id="engineeringList_area">
+                        <span class="factor-span">工程部位:</span>
+                        <div id="engineeringList" class="bootstrap-select mg-b-20 select-pad">
+                            @{ Html.RenderAction("EngineeringSelect");}
+                        </div>
+                    </div>
+                    <div id="sectionList_area">
+                        <span class="factor-span">截面:</span>
+                        <div id="sectionList" class="bootstrap-select select-pad">
+                            @{ Html.RenderAction("SectionSelect", new { engId = 2, shaft = 2 });}
+                        </div>
+                    </div>
+                </div>
+                <div class="inbox-left-sd">
+                    <div id="btn_chartType" class="btnshaft-area" style="display:none">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mg-b-15">
+                                <button id="btn_chartH" class="btn btn-success notika-btn-success btn-shaft2" onclick="btn_ChartH()">历史曲线</button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mg-b-15">
+                                <button id="btn_chartR" class="btn btn-gray notika-btn-gray btn-shaft4" onclick="btn_ChartR()">实时曲线</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="nowTime" style="display:none">
+                        <span class="time-span">当前监测时间:&nbsp;</span>
+                        <span id="nowTimeTxt" class="time-span"></span>
+                        <div class="nk-datapk-ctm nk-int-st"></div>
+                        <hr />
+                        <div id="newData_R" class="inbox-status">
+                            <ul class="inbox-st-nav newdata">
+                                @*<li>最大偏移<span class="pull-right" id="max-X">256</span></li>
+                                    <li>平均值<span class="pull-right" id="mean-X">458</span></li>*@
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="timeSpan" class="btnshaft-area" style="display:none">
+                        <div class="nk-datapk-ctm nk-int-st mg-b-15">
+                            <input type="text" id="beginTime" name="beginTime" class="form-control btnshaft-area" placeholder="开始时间" />
+                        </div>
+                        <div class="nk-datapk-ctm nk-int-st mg-b-15">
+                            <input type="text" id="endTime" name="endTime" class="form-control btnshaft-area" placeholder="结束时间" />
+                        </div>
+                        <div class="mg-b-15">
+                            <button onclick="getHistoryData()" class="btn btn-success notika-btn-success">查询</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+                <div id="chart_Distribute" class="data-list"></div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="inbox-left-sd" id="alarm_area">
+                    <h2>告警记录</h2>
+                    <span class="factor-span">监测时间:</span>
+                    <div class="bootstrap-select mg-b-20 select-pad">
+                        <select id="timespan" class="selectpicker" onchange="getAlarmLogs(this.value)">
+                            <option value="3" selected>3小时</option>
+                            <option value="6">6小时</option>
+                            <option value="24">1天</option>
+                            <option value="48">2天</option>
+                            <option value="72">3天</option>
+                        </select>
+                    </div>
+                    <div class="inbox-status">
+                        <ul class="inbox-st-nav alarm-ul" id="alarm_li"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                <div id="div_setvalue" style="display:none">
+                    <input id="btn_setvalue" type="button" class="btn-setvalue" value="校准" />
+                </div>
+                <div id="div_sensoritems" style="display:none">
+                    <div class="data-list z-area">
+                        <div id="sensor_items">
+                            <div class="sensor-item">
+                                <div class="toggle-select-act fm-cmp-mg">
+                                    <div class="nk-toggle-switch">
+                                        <label for="ts1" class="ts-label">Toggle Swith Default</label>
+                                        <input id="ts1" type="checkbox" hidden="hidden">
+                                        <label for="ts1" class="ts-helper"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sensor-item">
+                                <div class="toggle-select-act fm-cmp-mg">
+                                    <div class="nk-toggle-switch">
+                                        <label for="ts2" class="ts-label">Toggle Swith Default</label>
+                                        <input id="ts2" type="checkbox" hidden="hidden">
+                                        <label for="ts2" class="ts-helper"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sensor-item">
+                            <input id="btn_save" type="button" class="btn-save" value="确认" />
+                            <span style="padding:0 45px;"></span>
+                            <input id="btn_cancle" type="button" class="btn-cancle" value="取消" />
+                        </div>
+                    </div>
+                </div>
+                <div id="chart_H" class="data-list" style="display:none"></div>
+                <div id="chart_R" class="data-list" style="display:none"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@section head{
+    @Styles.Render("~/Content/dialog")
+    <style>
+    .highcharts-legend-item span{
+        overflow:visible
+    }
+    .alarm-ul{
+        overflow:auto;
+        max-height:300px;
+        min-height:80px;
+    }
+    #alarm_li .li {
+    animation-name: tip;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@@keyframes tip {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-300px);
+    }
+}
+#alarm_li:hover .li {
+    animation-name: none;
+}
+    </style>
+}
+@section scripts{
+    <script src="~/Scripts/laydate/laydate.js"></script>
+    @Scripts.Render("~/bundle/highchart")
+    @Scripts.Render("~/bundle/sensorpoint")
+    @Scripts.Render("~/bundles/dialog")
+    <script>
+        {
+            window.shaft2Or4 = true;// 二号竖井或四号竖井标志位
+            window.chartROrH = false;// 实时曲线与历史曲线标志位
+            window.data1 = [];
+            window.data2 = [];
+            window.data3 = [];
+            window.data4 = [];
+            window.data5 = [];
+            window.data6 = [];
+            window.data7 = [];
+            window.data8 = [];
+            window.data9 = [];
+            window.xtime = [];
+            window.longtime = [];
+            window.newxtime = '';// 新增的实时曲线的时间坐标
+            window.newtime = '';// 最新的数据监测时间
+            window.sensorNum1 = '';
+            window.sensorNum2 = '';
+            window.sensorNum3 = '';
+            window.sensorNum4 = '';
+            window.sensorNum5 = '';
+            window.sensorNum6 = '';
+            window.sensorNum7 = '';
+            window.sensorNum8 = '';
+            window.sensorNum9 = '';
+            window.interval_charR = [];
+        }
+
+        $(function () {
+            setChart_Distribute(2);
+        })
+        laydate.render({
+            elem: '#beginTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#endTime',
+            type: 'datetime'
+        });
+
+        $('#btn_setvalue').click(function () {
+            var obj = document.getElementById('sensor_items');
+            obj.innerHTML = "";
+            if (chartROrH) {
+                document.getElementById('chart_R').style.backgroundColor = '#efefef';
+                var sensors = chart_R.series;
+            }
+            else {
+                document.getElementById('chart_H').style.backgroundColor = '#efefef';
+                var sensors = chart_H.series;
+            }
+            for (var i = 0; i < sensors.length; i++) {
+                var div = document.createElement('div');
+                div.innerHTML = '<div class="sensor-item"><div class="toggle-select-act fm-cmp-mg"><div class="nk-toggle-switch">' +
+                    '<label for="' + sensors[i].options.name + '" class= "ts-label">' + sensors[i].options.name +
+                    '</label><input id="' + sensors[i].options.name + '" type="checkbox" class="chk" hidden="hidden">' +
+                    '<label for="' + sensors[i].options.name + '" class="ts-helper"></label></div></div></div>';
+                obj.appendChild(div);
+            }
+            document.getElementById('div_sensoritems').style.display = 'block';
+        })
+        // 点击保存按钮，设置基准值
+        $('#btn_save').click(function () {
+            var arr = [];
+            $('.chk:checked').each(function (i, e) { arr.push(e.id); });
+            if (arr.length > 0) {
+                document.getElementById('chart_R').style.backgroundColor = '#fff';
+                document.getElementById('chart_H').style.backgroundColor = '#fff';
+                document.getElementById('div_sensoritems').style.display = 'none';
+                var secId = document.getElementById('sectionSelect').value;
+                var value = document.getElementById('factorSelect').value;
+                var type = "";
+                if (value == 2) type = "YB";
+                else if (value == 3) type = "WY";
+                $.ajax({
+                    url: "/Home/SetValue",
+                    type: "post",
+                    data: {
+                        secId: secId,
+                        senNums: arr,
+                        type: type
+                    }
+                }).done(function () {
+                    
+                }).catch(function () {
+                    document.getElementById('chart_R').style.backgroundColor = '#fff';
+                    document.getElementById('chart_H').style.backgroundColor = '#fff';
+                    document.getElementById('div_sensoritems').style.display = 'none';
+                    swal.fire({
+                        title: "设置失败!",
+                        icon: "warning",
+                        showCancelButton: false,
+                        confirmButtonText: "Yes",
+                        cancelButtonText: "No",
+                        confirmButtonColor: "#00C292"
+                    }).then(function () {
+                    }).catch()
+                })
+            }
+            else {
+                swal.fire({
+                    title: "请选择要校准的设备!",
+                    icon: "warning",
+                    showCancelButton: false,
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#00C292"
+                }).then(function () {
+                }).catch()
+            }
+        })
+
+        $('#btn_cancle').click(function () {
+            document.getElementById('chart_R').style.backgroundColor = '#fff';
+            document.getElementById('chart_H').style.backgroundColor = '#fff';
+            document.getElementById('div_sensoritems').style.display = 'none';
+        })
+
+        function getAlarmLogs(time) {
+            $.ajax({
+                url: '/Home/GetLatestAlarmLogs',
+                type: "get",
+                data: { time: time }
+            }).done(function (data) {
+                if (data.length == 0) {
+                    var obj = document.getElementById('alarm_li');
+                    obj.innerHTML = "";
+                    return;
+                }
+                var obj = document.getElementById('alarm_li');
+                obj.innerHTML = "";
+                for (var i = 0; i < data.length; i++) {
+                    var li = document.createElement('li');
+                    var unit = "";
+                    if (data[i].Type == "ZD") unit = " mm/s";
+                    else if (data[i].Type == "WY") unit = " mm";
+                    else if (data[i].Type == "YB") unit = " ×10ˉ⁶";
+                    else if (data[i].Type == "YL" || data[i].Type == "GJ") unit = " MPa";
+                    li.innerHTML = '<span class="newdata">' + data[i].SensorNum + '</span><span class="pull-right newdata">' + data[i].Data + unit + '</span>';
+                    obj.appendChild(li);
+                    var pointSensor = chart_D.get(data[i].SensorNum);
+                    var grade = data[i].Grade;
+                    if (pointSensor) {
+                        var symbol = pointSensor.marker.symbol;// 保存原来的节点标记
+                        if (grade == 0) {// 预警
+                            if (symbol == "url(../picture/rectangle_g.png)") {
+                                pointSensor.marker.symbol = "url(../picture/rectangle_o.png)";
+                                pointSensor.update(pointSensor);
+                            } else if (symbol == "triangle") {
+                                pointSensor.color = 'orange';
+                                pointSensor.update(pointSensor);
+                            } else if (symbol == "cricle") {
+                                pointSensor.color = 'orange';
+                                pointSensor.update(pointSensor);
+                            } else if (symbol == "square") {
+                                pointSensor.color = 'orange';
+                                pointSensor.update(pointSensor);
+                            }
+                        }
+                        else if (grade == 1) {// 危险
+                            if (symbol == "url(../picture/rectangle_g.png)") {
+                                pointSensor.marker.symbol = "url(../picture/rectangle_r.png)";
+                                pointSensor.update(pointSensor);
+                            } else if (symbol == "triangle") {
+                                pointSensor.color = 'red';
+                                pointSensor.update(pointSensor);
+                            } else if (symbol == "cricle") {
+                                pointSensor.color = 'red';
+                                pointSensor.update(pointSensor);
+                            } else if (symbol == "square") {
+                                pointSensor.color = 'red';
+                                pointSensor.update(pointSensor);
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        function changeContent(factor, engId) {
+            if (factor == 1) {// 更新分布图
+                document.getElementById('chart_Distribute').style.display = 'block';
+                document.getElementById('alarm_area').style.display = 'block';
+                document.getElementById('chart_H').style.display = 'none';
+                document.getElementById('chart_R').style.display = 'none';
+                document.getElementById('btn_chartType').style.display = 'none';
+                document.getElementById('nowTime').style.display = 'none';
+                document.getElementById('timeSpan').style.display = 'none';
+
+                setChart_Distribute(engId);
+            }
+            else {// 否则更新曲线
+                if (factor == 2 || factor == 3)
+                    $('#div_setvalue').show();
+                else
+                    $('#div_setvalue').hide();
+                document.getElementById('chart_Distribute').style.display = 'none';
+                document.getElementById('alarm_area').style.display = 'none';
+                document.getElementById('btn_chartType').style.display = 'block';
+                if (chartROrH) {
+                    document.getElementById('chart_R').style.display = 'block';
+                    document.getElementById('nowTime').style.display = 'block';
+                    document.getElementById('chart_H').style.display = 'none';
+                    document.getElementById('timeSpan').style.display = 'none';
+                    clearInterval(interval_charR);
+                    getLatestData();
+                    interval_charR = setInterval(refershChart, 1000 * 60);
+                }
+                else {
+                    document.getElementById('chart_H').style.display = 'block';
+                    document.getElementById('timeSpan').style.display = 'block';
+                    document.getElementById('chart_R').style.display = 'none';
+                    document.getElementById('nowTime').style.display = 'none';
+                    getHistoryData();
+                    clearInterval(interval_charR);
+                }
+            }
+        }
+
+        function btn_Shaft2() {
+            document.getElementById('btn_shaft2').style.backgroundColor = '#00c292';
+            document.getElementById('btn_shaft4').style.backgroundColor = '#9E9E9E';
+
+            var engId = document.getElementById('engineeringSelect').value;
+            var factor = document.getElementById('factorSelect').value;
+            if (!shaft2Or4) {// 改变竖井才刷新截面
+                shaft2Or4 = true;
+                changeEngineering(engId);
+            }
+            else {// 否则不刷新截面，只更新chart数据
+                changeContent(factor, engId);
+            }
+        }
+
+        function btn_Shaft4() {
+            document.getElementById('btn_shaft4').style.backgroundColor = '#00c292';
+            document.getElementById('btn_shaft2').style.backgroundColor = '#9E9E9E';
+            document.getElementById('btn_shaft4').style.color = 'white';
+            document.getElementById('btn_shaft4').style.outline = 'none';
+
+            var engId = document.getElementById('engineeringSelect').value;
+            var factor = document.getElementById('factorSelect').value;
+            if (shaft2Or4) {
+                shaft2Or4 = false;
+                var engId = document.getElementById('engineeringSelect').value;
+                changeEngineering(engId);
+            }
+            else {// 否则不刷新截面，只更新chart数据
+                changeContent(factor, engId);
+            }
+        }
+
+        function btn_ChartR() {
+            chartROrH = true;
+            document.getElementById('btn_chartR').style.backgroundColor = '#00c292';
+            document.getElementById('btn_chartH').style.backgroundColor = '#9E9E9E';
+            document.getElementById('btn_chartR').style.color = 'white';
+            document.getElementById('btn_chartR').style.outline = 'none';
+            document.getElementById('chart_R').style.display = 'block';
+            document.getElementById('nowTime').style.display = 'block';
+            document.getElementById('chart_H').style.display = 'none';
+            document.getElementById('timeSpan').style.display = 'none';
+            clearInterval(interval_charR);
+            getLatestData();
+            interval_charR = setInterval(refershChart, 1000 * 60);
+        }
+
+        function btn_ChartH() {
+            chartROrH = false;
+            document.getElementById('btn_chartH').style.backgroundColor = '#00c292';
+            document.getElementById('btn_chartR').style.backgroundColor = '#9E9E9E';
+            document.getElementById('chart_H').style.display = 'block';
+            document.getElementById('timeSpan').style.display = 'block';
+            document.getElementById('chart_R').style.display = 'none';
+            document.getElementById('nowTime').style.display = 'none';
+            getHistoryData();
+            clearInterval(interval_charR);
+        }
+
+        function changeFactor(factorId) {
+            var engId = document.getElementById('engineeringSelect').value;
+            changeContent(factorId, engId);
+        }
+
+        function getUnit() {
+            var factor = document.getElementById('factorSelect').value;
+            var unit = '';
+            if (factor == 2) {
+                unit = '×10ˉ⁶';
+            } else if (factor == 3) {
+                unit = 'mm';
+            } else if (factor == 4) {
+                unit = 'mm/s';
+            } else if (factor == 5 || factor == 6) {
+                unit = 'MPa';
+            }
+            return unit;
+        }
+
+        function changeEngineering(engId) {
+            if (shaft2Or4) {
+                var shaft = '2';
+            } else {
+                var shaft = '4';
+            }
+            var sectionId_ago = document.getElementById('sectionSelect').value;
+            var str = '/Home/SectionSelect?engId=' + engId + '&shaft=' + shaft;
+            $('#sectionList').load(str);
+            var factor = document.getElementById('factorSelect').value;
+            var interval_temp = setInterval(function () {// 分部视图加载需要约80ms
+                var sectionId_now = document.getElementById('sectionSelect').value;
+                if (sectionId_ago != sectionId_now) {// 确定分部视图加载完成后再执行异步请求
+                    $('#sectionSelect').addClass('animated zoomIn').selectpicker('setStyle');
+                    $('.selectpicker').selectpicker('refresh');
+                    changeContent(factor, engId);
+                    clearInterval(interval_temp);
+                }
+            }, 100)
+        }
+        function changeSection(sectionId) {
+            var factor = document.getElementById('factorSelect').value;
+            var engId = document.getElementById('engineeringSelect').value;
+            changeContent(factor, engId);
+        }
+
+        function getHistoryData() {
+            $.ajax({
+                url: '/Home/GetHistoryData',
+                type: 'get',
+                data: {
+                    beginTime: document.getElementById('beginTime').value,
+                    endTime: document.getElementById('endTime').value,
+                    sectionId: document.getElementById('sectionSelect').value,
+                    factor: document.getElementById('factorSelect').value
+                }
+            }).done(function (data) {
+                data1 = [];
+                data2 = [];
+                data3 = [];
+                data4 = [];
+                data5 = [];
+                data6 = [];
+                data7 = [];
+                data8 = [];
+                data9 = [];
+                xtime = [];
+                longtime = [];
+                if (data.length == 0) {
+                    setChart_H();
+                    return;
+                }
+                else {
+                    var regex = /\d{13}/;
+                    for (var i = 0; i < data.length; i++) {// 即使传来的数据少于9个也不会报错
+                        data1[i] = parseFloat(data[i].Data1);
+                        data2[i] = parseFloat(data[i].Data2);
+                        data3[i] = parseFloat(data[i].Data3);
+                        data4[i] = parseFloat(data[i].Data4);
+                        data5[i] = parseFloat(data[i].Data5);
+                        data6[i] = parseFloat(data[i].Data6);
+                        data7[i] = parseFloat(data[i].Data7);
+                        data8[i] = parseFloat(data[i].Data8);
+                        data9[i] = parseFloat(data[i].Data9);
+                        var s = (data[i].CreateTime).match(regex);
+                        xtime[i] = Number(s[0]);// 这里得到13位的时间戳
+                        longtime[i] = setTimeFormat(xtime[i]);
+                    }
+                    var factor = document.getElementById('factorSelect').value;
+                    if (factor == 2 || factor == 3) {
+                        sensorNum1 = data[0].SensorNum1;
+                        sensorNum2 = data[0].SensorNum2;
+                        sensorNum3 = data[0].SensorNum3;
+                        sensorNum4 = data[0].SensorNum4;
+                        sensorNum5 = data[0].SensorNum5;
+                        sensorNum6 = data[0].SensorNum6;
+                        sensorNum7 = data[0].SensorNum7;
+                        sensorNum8 = data[0].SensorNum8;
+                        sensorNum9 = data[0].SensorNum9;
+                    } else if (factor == 4) {
+                        sensorNum1 = data[0].SensorNum1;
+                        sensorNum2 = data[0].SensorNum2;
+                        sensorNum3 = data[0].SensorNum3;
+                        sensorNum4 = data[0].SensorNum4;
+                        sensorNum5 = data[0].SensorNum5;
+                    } else if (factor == 5 || factor == 6) {
+                        sensorNum1 = data[0].SensorNum1;
+                        sensorNum2 = data[0].SensorNum2;
+                        sensorNum3 = data[0].SensorNum3;
+                        sensorNum4 = data[0].SensorNum4;
+                        sensorNum5 = data[0].SensorNum5;
+                        sensorNum6 = data[0].SensorNum6;
+                        sensorNum7 = data[0].SensorNum7;
+                    }
+                    data1 = recreateXYPoint(data1);
+                    data2 = recreateXYPoint(data2);
+                    data3 = recreateXYPoint(data3);
+                    data4 = recreateXYPoint(data4);
+                    data5 = recreateXYPoint(data5);
+                    data6 = recreateXYPoint(data6);
+                    data7 = recreateXYPoint(data7);
+                    data8 = recreateXYPoint(data8);
+                    data9 = recreateXYPoint(data9);
+                    setChart_H();
+                    return;
+                }
+            })
+        }
+
+        function getLatestData() {
+            $.ajax({
+                url: '/Home/GetLatestDatas',
+                type: 'get',
+                data: {
+                    sectionId: document.getElementById('sectionSelect').value,
+                    factor: document.getElementById('factorSelect').value
+                }
+            }).done(function (data) {
+                data1 = [];
+                data2 = [];
+                data3 = [];
+                data4 = [];
+                data5 = [];
+                data6 = [];
+                data7 = [];
+                data8 = [];
+                data9 = [];
+                xtime = [];
+                longtime = [];
+                if (data.length == 0) {
+                    setChart_R();
+                    return;
+                }
+                else {
+                    var regex = /\d{13}/;
+                    for (var i = 0; i < data.length; i++) {
+                        data1[i] = parseFloat(data[i].Data1);
+                        data2[i] = parseFloat(data[i].Data2);
+                        data3[i] = parseFloat(data[i].Data3);
+                        data4[i] = parseFloat(data[i].Data4);
+                        data5[i] = parseFloat(data[i].Data5);
+                        data6[i] = parseFloat(data[i].Data6);
+                        data7[i] = parseFloat(data[i].Data7);
+                        data8[i] = parseFloat(data[i].Data8);
+                        data9[i] = parseFloat(data[i].Data9);
+                        var s = (data[i].CreateTime).match(regex);
+                        xtime[i] = Number(s[0]);// 这里得到13位的时间戳
+                        longtime[i] = Highcharts.dateFormat('%Y-%m-%d %H:%M:%S.%L', setTimeFormat(xtime[i]));
+                        xtime[i] = Highcharts.dateFormat('%H:%M:%S.%L', setTimeFormat(xtime[i]));//x轴坐标不含日期
+                    }
+                    sensorNum1 = data[0].SensorNum1;
+                    sensorNum2 = data[0].SensorNum2;
+                    sensorNum3 = data[0].SensorNum3;
+                    sensorNum4 = data[0].SensorNum4;
+                    sensorNum5 = data[0].SensorNum5;
+                    sensorNum6 = data[0].SensorNum6;
+                    sensorNum7 = data[0].SensorNum7;
+                    sensorNum8 = data[0].SensorNum8;
+                    sensorNum9 = data[0].SensorNum9;
+
+                    data1 = data1.reverse();
+                    data2 = data2.reverse();
+                    data3 = data3.reverse();
+                    data4 = data4.reverse();
+                    data5 = data5.reverse();
+                    data6 = data6.reverse();
+                    data7 = data7.reverse();
+                    data8 = data8.reverse();
+                    data9 = data9.reverse();
+
+                    xtime = xtime.reverse();
+                    newtime = longtime[0];
+                    document.getElementById('nowTimeTxt').innerHTML = newtime;
+
+                    longtime = longtime.reverse();
+                    data1 = recreateXYPoint(data1);
+                    data2 = recreateXYPoint(data2);
+                    data3 = recreateXYPoint(data3);
+                    data4 = recreateXYPoint(data4);
+                    data5 = recreateXYPoint(data5);
+                    data6 = recreateXYPoint(data6);
+                    data7 = recreateXYPoint(data7);
+                    data8 = recreateXYPoint(data8);
+                    data9 = recreateXYPoint(data9);
+                    setChart_R();
+                    return;
+                }
+            })
+        }
+
+        function setTimeFormat(time) {
+            var t = new Date(time);
+            return Date.UTC(t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate(), t.getUTCHours() + 8, t.getUTCMinutes(), t.getUTCSeconds(), t.getUTCMilliseconds());
+        }
+
+        function recreateXYPoint(data) {
+            var point = [];
+            for (var i = 0; i < data.length; i++) {
+                point.push([longtime[i], data[i]]);
+            }
+            return point;
+        }
+
+        function refershChart() {
+            $.ajax({
+                url: '/Home/GetLatestDatas',
+                type: 'get',
+                data: {
+                    sectionId: document.getElementById('sectionSelect').value,
+                    factor: document.getElementById('factorSelect').value,
+                    num: 1
+                }
+            }).done(function (data) {
+                if (data.length == 0) {
+                    return;
+                }
+                else {
+                    if (window.newtime == Highcharts.dateFormat('%Y-%m-%d %H:%M:%S.%L',
+                        setTimeFormat(Number(data[0].CreateTime.match(/\d{13}/)[0])))) {
+                        return;
+                    }
+                    else {// 获取到最新数据
+                        window.newxtime = Highcharts.dateFormat('%H:%M:%S.%L',
+                            setTimeFormat(Number(data[0].CreateTime.match(/\d{13}/)[0])));
+                        chart_R.xAxis[0].categories.push(newxtime);
+                        window.newtime = Highcharts.dateFormat('%Y-%m-%d %H:%M:%S.%L',
+                            setTimeFormat(Number(data[0].CreateTime.match(/\d{13}/)[0])));
+                        document.getElementById('nowTimeTxt').innerHTML = newtime; // 刷新页面时间
+
+                        var point = [];
+                        if (!isNaN(parseFloat(data[0].Data1))) {
+                            point.push([newtime, parseFloat(data[0].Data1)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data2))) {
+                            point.push([newtime, parseFloat(data[0].Data2)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data3))) {
+                            point.push([newtime, parseFloat(data[0].Data3)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data4))) {
+                            point.push([newtime, parseFloat(data[0].Data4)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data5))) {
+                            point.push([newtime, parseFloat(data[0].Data5)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data6))) {
+                            point.push([newtime, parseFloat(data[0].Data6)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data7))) {
+                            point.push([newtime, parseFloat(data[0].Data7)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data8))) {
+                            point.push([newtime, parseFloat(data[0].Data8)]);
+                        }
+                        if (!isNaN(parseFloat(data[0].Data9))) {
+                            point.push([newtime, parseFloat(data[0].Data9)]);
+                        }
+                        for (var i = 0; i < (point.length - 1); i++) {
+                            chart_R.series[i].addPoint(point[i], false, true, true);
+                        }
+                        chart_R.series[point.length - 1].addPoint(point[point.length - 1], true, true, true);
+                    }
+                }
+            })
+        }
+
+        function setChart_H() {
+            if (shaft2Or4) {
+                var shaftNum = 2;
+            } else {
+                var shaftNum = 4;
+            }
+            var engineeringName = $('#engineeringSelect option:selected').text();
+            var factorName = $('#factorSelect option:selected').text();
+            var sectionNum = $('#sectionSelect option:selected').text();
+            var unit = getUnit();// 存储单位;
+            if (factorName == '监测点分布') {
+                var title_txt = shaftNum + '号竖井—' + engineeringName + '—' + sectionNum + factorName + '图';
+            } else {
+                var title_txt = shaftNum + '号竖井—' + engineeringName + '—' + sectionNum + factorName + '曲线';
+            }
+            chart_H = Highcharts.chart('chart_H', {
+                chart: {
+                    backgroundColor: 'transparent',
+                    type: 'spline',
+                    zoomType: 'x',
+                    marginRight: 30
+                },
+                credits: {
+                    enabled: false//不显示版权信息
+                },
+                title: {
+                    text: title_txt
+                },
+                xAxis: {
+                    title: {
+                        text: '时间',
+                    },
+                    type: 'datetime',
+                    dateTimeLabelFormats: {
+                        millisecond: '%H:%M:%S.%L',
+                        second: '%H:%M:%S',
+                        minute: '%H:%M',
+                        hour: '%H:%M',
+                        day: '%Y-%m-%d',
+                        week: '%m-%d',
+                        month: '%Y-%m',
+                        year: '%Y'
+                    }
+                },
+                yAxis: [{
+                    title: {
+                        text: factorName + unit,
+                    },
+                    labels: {
+                        overflow: 'justify',
+                    },
+                    //设置网格线 可不写
+                    gridLineWidth: 0,//网格线宽度，默认为0；
+                    stackLabels: {
+                        style: {
+                            color: '#fff'
+                        }
+                    },
+                }],
+                legend: {
+                    layout: 'horizontal',
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    floating: true,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 90,
+                    y: 45,
+                },
+                plotOption: {
+
+                },
+                tooltip: {
+                    crosshairs: true,
+                    shared: true,
+                    xDateFormat: '%Y-%m-%d %H:%M:%S.%L',//数据提示框头部时间格式化
+                    valueSuffix: ' ' + unit//数据提示框单位
+                }
+            });
+            // 如果数据为空，直接清除掉所有series并返回，防止曲线名显示在空白处
+            if (data1.length == 0) {
+                for (var i = 0; i < chart_H.series.length; i++) {
+                    chart_H.series[i].remove();
+                }
+                return;
+            }
+            if (!isNaN(data1[0][1]) || !isNaN(data1[0][data1.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum1,
+                    color: '#FF0000',
+                    data: data1,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data2[0][1]) || !isNaN(data2[0][data2.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum2,
+                    color: '#FF7F00',
+                    data: data2,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data3[0][1]) || !isNaN(data3[0][data3.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum3,
+                    color: '#FFFF00',
+                    data: data3,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data4[0][1]) || !isNaN(data4[0][data4.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum4,
+                    color: '#06b70b',
+                    data: data4,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data5[0][1]) || !isNaN(data5[0][data5.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum5,
+                    color: '#06b79b',
+                    data: data5,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data6[0][1]) || !isNaN(data6[0][data6.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum6,
+                    color: '#06b79b',
+                    data: data6,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data7[0][1]) || !isNaN(data7[0][data7.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum7,
+                    color: '#06b79b',
+                    data: data7,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data8[0][1]) || !isNaN(data8[0][data8.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum8,
+                    color: '#06b79b',
+                    data: data8,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data9[0][1]) || !isNaN(data9[0][data9.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum9,
+                    color: '#06b79b',
+                    data: data9,
+                    yAxis: 0
+                })
+            }
+        }
+
+        function setChart_R() {
+            if (shaft2Or4) {
+                var shaftNum = 2;
+            } else {
+                var shaftNum = 4;
+            }
+            var engineeringName = $('#engineeringSelect option:selected').text();
+            var factorName = $('#factorSelect option:selected').text();
+            var sectionNum = $('#sectionSelect option:selected').text();
+            var unit = getUnit();// 存储单位;
+            var title_txt = shaftNum + '号竖井—' + engineeringName + '—' + sectionNum + factorName + '曲线';
+            chart_R = Highcharts.chart('chart_R', {
+                chart: {
+                    backgroundColor: 'transparent',
+                    type: 'spline',
+                    marginRight: 70,//右外边距不能过小，否则右侧无法显示数据轴
+                    //zoomType: 'x'
+                },
+                credits: {
+                    enabled: false//不显示版权信息
+                },
+                exporting: {
+                    enable: true
+                },
+                title: {
+                    text: title_txt
+                },
+                xAxis: {
+                    categories: xtime,
+                    tickPixelInterval: 150,
+                    title: {
+                        text: '时间',
+                    }
+                },
+                yAxis: [{
+                    title: {
+                        text: factorName + unit,
+                    },
+                    labels: {
+                        overflow: 'justify',
+                        //formatter: function () {
+                        //    return this.value + 'mm';
+                        //}
+                    },
+                    //设置网格线 可不写
+                    gridLineWidth: 0,//网格线宽度，默认为0；
+                    stackLabels: {
+                        style: {
+                            color: '#fff'
+                        }
+                    },
+                    //opposite: true,
+                }],
+                legend: {
+                    layout: 'horizontal',
+                    backgroundColor: 'rgba(0,0,0,0)',
+                    floating: true,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 90,
+                    y: 45,
+                    //labelFormat: '<span style="{color}">{name} (click to hide or show)</span>'
+                },
+                tooltip: {
+                    crosshairs: true,
+                    shared: true,//// 是否显示阴影
+                    valueSuffix: unit//数据提示框单位
+                }
+            });
+            // 如果数据为空，直接清除掉所有series并返回，防止曲线名显示在空白处
+            if (data1.length == 0) {
+                for (var i = 0; i < chart_R.series.length; i++) {
+                    chart_R.series[i].remove();
+                }
+                return;
+            }
+            if (!isNaN(data1[0][1]) || !isNaN(data1[0][data1.length-1])) {
+                chart_R.addSeries({
+                    name: sensorNum1,
+                    color: '#FF0000',
+                    data: data1,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data2[0][1]) || !isNaN(data2[0][data2.length-1])) {
+                chart_R.addSeries({
+                    name: sensorNum2,
+                    color: '#FF7F00',
+                    data: data2,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data3[0][1]) || !isNaN(data3[0][data3.length-1])) {
+                chart_R.addSeries({
+                    name: sensorNum3,
+                    color: '#FFFF00',
+                    data: data3,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data4[0][1]) || !isNaN(data4[0][data4.length-1])) {
+                chart_R.addSeries({
+                    name: sensorNum4,
+                    color: '#06b70b',
+                    data: data4,
+                    yAxis: 0
+                });
+            }
+            if (!isNaN(data5[0][1]) || !isNaN(data5[0][data5.length-1])) {
+                chart_R.addSeries({
+                    name: sensorNum5,
+                    color: '#06b79b',
+                    data: data5,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data6[0][1]) || !isNaN(data6[0][data6.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum6,
+                    color: '#06b79b',
+                    data: data6,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data7[0][1]) || !isNaN(data7[0][data7.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum7,
+                    color: '#06b79b',
+                    data: data7,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data8[0][1]) || !isNaN(data8[0][data8.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum8,
+                    color: '#06b79b',
+                    data: data8,
+                    yAxis: 0
+                })
+            }
+            if (!isNaN(data9[0][1]) || !isNaN(data9[0][data9.length-1])) {
+                chart_H.addSeries({
+                    name: sensorNum9,
+                    color: '#06b79b',
+                    data: data9,
+                    yAxis: 0
+                })
+            }
+        }
+
+        function setChart_Distribute(eng) {
+            var sectionNum = $('#sectionSelect option:selected').text();
+            if (eng == 1) {
+                chart_D = Highcharts.chart('chart_Distribute', {
+                    chart: {
+                        type: 'scatter',
+                        plotBackgroundImage: '../picture/YJ.png',
+                    },
+                    title: {
+                        text: '应急封堵墙—' + sectionNum + '—测点分布'
+                    },
+                    credits: {
+                        enabled: false//不显示版权信息
+                    },
+                    xAxis: {
+                        min: 0,
+                        max: 1000,
+                        visible: false
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 100,
+                        gridLineWidth: 0,
+                        visible: false
+                    },
+                    legend: {
+                        enabled: true,
+                        useHTML: true,
+                        align: 'right',
+                        verticalAlign: 'top',
+                        floating: true,
+                        x: -10,
+                        y: 50,
+                        symbolWidth: 0.001,
+                        symbolHeight: 0.001,
+                        symbolRadius: 0.001,
+                        labelFormatter:function() {
+                            let img = '<div style="width:60px"><img src="/picture/rectangle_g.png" style="width:9px;height:17px">&nbsp;&nbsp;应变计</div>' +
+                                '<div style="width:60px"><img src="/picture/triangle.png" style="width:9px;height:9px"/>&nbsp;&nbsp;位移计</div>' +
+                                '<div style="width:60px"><img src="/picture/circle.png" style="width:9px;height:9px"/>&nbsp;&nbsp;振动计</div>';
+                            return img;
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<b>截面:{series.name}<b><br>',
+                        pointFormat: '节点:{point.id}',
+                        enabled: true
+                    },
+                    plotOptions: {
+                        series: {
+                            events: {
+                                legendItemClick: function () {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                })
+            } else if (eng == 2) {
+                chart_D = Highcharts.chart('chart_Distribute', {
+                    chart: {
+                        type: 'scatter',
+                        plotBackgroundImage: '../picture/SJ.png'
+                    },
+                    title: {
+                        text: '初支与二衬背后—' + sectionNum + '—测点分布'
+                    },
+                    credits: {
+                        enabled: false//不显示版权信息
+                    },
+                    xAxis: {
+                        min: 0,
+                        max: 1000,
+                        visible: false
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 100,
+                        gridLineWidth: 0,
+                        visible: false
+                    },
+                    legend: {
+                        enabled: true,
+                        useHTML: true,
+                        align: 'right',
+                        verticalAlign: 'top',
+                        floating: true,
+                        x: -10,
+                        y: 50,
+                        symbolWidth: 0.001,
+                        symbolHeight: 0.001,
+                        symbolRadius: 0.001,
+                        labelFormatter:function() {
+                            let img = '<div style="width:60px"><img src="/picture/rectangle_g.png" style="width:9px;height:17px">&nbsp;&nbsp;压力计</div>' +
+                                '<div style="width:60px"><img src="/picture/square.png" style="width:9px;height:9px"/>&nbsp;&nbsp;钢筋计</div>';
+                            return img;
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<b>截面:{series.name}<b><br>',
+                        pointFormat: '节点:{point.id}',
+                        enabled: true
+                    },
+                    plotOptions: {
+                        series: {
+                            events: {
+                                legendItemClick: function () {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                })
+            } else if (eng == 3) {
+                chart_D = Highcharts.chart('chart_Distribute', {
+                    chart: {
+                        type: 'scatter',
+                        plotBackgroundImage: '../picture/ZD.png'
+                    },
+                    title: {
+                        text: '正洞、正洞与斜井交叉口—' + sectionNum + '—测点分布'
+                    },
+                    credits: {
+                        enabled: false//不显示版权信息
+                    },
+                    xAxis: {
+                        min: 0,
+                        max: 1000,
+                        visible: false
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 100,
+                        gridLineWidth: 0,
+                        visible: false
+                    },
+                    legend: {
+                        enabled: true,
+                        useHTML: true,
+                        align: 'right',
+                        verticalAlign: 'top',
+                        floating: true,
+                        x: -10,
+                        y: 50,
+                        symbolWidth: 0.001,
+                        symbolHeight: 0.001,
+                        symbolRadius: 0.001,
+                        labelFormatter: function() {
+                            let img = '<div style="width:60px"><img src="/picture/rectangle_g.png" style="width:9px;height:17px">&nbsp;&nbsp;应变计</div>' +
+                                '<div style="width:60px"><img src="/picture/triangle.png" style="width:9px;height:9px"/>&nbsp;&nbsp;位移计</div>' +
+                                '<div style="width:60px"><img src="/picture/circle.png" style="width:9px;height:9px"/>&nbsp;&nbsp;振动计</div>';
+                            return img;
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<b>截面:{series.name}<b><br>',
+                        pointFormat: '节点:{point.id}',
+                        enabled: true
+                    },
+                    plotOptions: {
+                        series: {
+                            events: {
+                                legendItemClick: function () {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                })
+            } else if (eng == 4) {
+                chart_D = Highcharts.chart('chart_Distribute', {
+                    chart: {
+                        type: 'scatter',
+                        plotBackgroundImage: '../picture/LJ.png',
+                    },
+                    title: {
+                        text: '斜井与连接通道交叉口—' + sectionNum + '—测点分布'
+                    },
+                    credits: {
+                        enabled: false//不显示版权信息
+                    },
+                    xAxis: {
+                        min: 0,
+                        max: 1000,
+                        visible: false
+                    },
+                    yAxis: {
+                        min: 0,
+                        max: 100,
+                        gridLineWidth: 0,
+                        visible: false
+                    },
+                    legend: {
+                        enabled: true,
+                        useHTML: true,
+                        align: 'right',
+                        verticalAlign: 'top',
+                        floating: true,
+                        x: -10,
+                        y: 50,
+                        symbolWidth: 0.001,
+                        symbolHeight: 0.001,
+                        symbolRadius: 0.001,
+                        labelFormatter: function() {
+                            let img = '<div style="width:60px"><img src="/picture/rectangle_g.png" style="width:9px;height:17px">&nbsp;&nbsp;应变计</div>' +
+                                '<div style="width:60px"><img src="/picture/triangle.png" style="width:9px;height:9px"/>&nbsp;&nbsp;位移计</div>' +
+                                '<div style="width:60px"><img src="/picture/circle.png" style="width:9px;height:9px"/>&nbsp;&nbsp;振动计</div>';
+                            return img;
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<b>截面:{series.name}<b><br>',
+                        pointFormat: '节点:{point.id}',
+                        enabled: true
+                    },
+                    plotOptions: {
+                        series: {
+                            events: {
+                                legendItemClick: function () {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+            var sensors = getPoints();
+            for (var i = 0; i < sensors.length; i++) {
+                if (sensors[i].id == sectionNum) {
+                    try {
+                        chart_D.addSeries(sensors[i]);
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+                }
+            }
+            var time = document.getElementById('timespan').value;
+            getAlarmLogs(time);
+        }
+    </script>
+}

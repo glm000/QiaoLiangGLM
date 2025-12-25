@@ -1,0 +1,32 @@
+﻿@model JiYiTunnelSystem.MVCSite.Models.PartialMessageVM
+
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/dialog")
+<div></div>
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/main")
+@Scripts.Render("~/bundles/dialog")
+
+@Html.Hidden("url",Model.Url)
+<script>
+    swal.fire({
+        title:"@Model.Message",
+        icon: "@Model.Icon",
+        showCancelButton: false,
+        confirmButtonText: "确定",
+        confirmButtonColor:"#00C292",
+    }).then(function (isConfirm) {
+        var url = document.getElementById('url').value;
+        if (url== null ||url== "") {
+            if (isConfirm.value) {
+                history.back(-1);
+            }
+        } else {
+            location.href=url;
+        }
+    }).catch(function (err) {
+        
+    });
+</script>

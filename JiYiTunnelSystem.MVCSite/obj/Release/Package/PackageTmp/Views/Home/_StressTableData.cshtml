@@ -1,0 +1,154 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<JiYiTunnelSystem.Dto.StressDto>
+
+<table class="table table-striped">
+    @if (Model.Count > 0)
+    {
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Shaft)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SectionNum)
+        </th>
+        @if (Model[0].SensorNum1 != null)
+        {
+            <th>
+                @Model[0].SensorNum1
+            </th>
+        }
+        @if (Model[0].SensorNum2 != null)
+        {
+            <th>
+                @Model[0].SensorNum2
+            </th>
+        }
+        @if (Model[0].SensorNum3 != null)
+        {
+            <th>
+                @Model[0].SensorNum3
+            </th>
+        }
+        @if (Model[0].SensorNum4 != null)
+        {
+            <th>
+                @Model[0].SensorNum4
+            </th>
+        }
+        @if (Model[0].SensorNum5 != null)
+        {
+            <th>
+                @Model[0].SensorNum5
+            </th>
+        }
+        @if (Model[0].SensorNum6 != null)
+        {
+            <th>
+                @Model[0].SensorNum6
+            </th>
+        }
+        @if (Model[0].SensorNum7 != null)
+        {
+            <th>
+                @Model[0].SensorNum7
+            </th>
+        }
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+    </tr>
+
+        foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shaft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SectionNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data1)
+            </td>
+            @if (Model[0].SensorNum2 != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data2)
+                </td>
+            }
+            @if (Model[0].SensorNum3 != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data3)
+                </td>
+            }
+            @if (Model[0].SensorNum4 != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data4)
+                </td>
+            }
+            @if (Model[0].SensorNum5 != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data5)
+                </td>
+            }
+            @if (Model[0].SensorNum6 != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data6)
+                </td>
+            }
+            @if (Model[0].SensorNum7 != null)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data7)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+        </tr>
+        }
+    }
+    else
+    {
+        <span class="tb-err-txt">无数据</span>
+    }
+
+    <tfoot>
+        <tr>
+            <td colspan="11">
+                <nav>
+                    @*@Html.Pager(Model, new PagerOptions {
+                            PageIndexParameterName = "pageIndex",ContainerTagName = "ul", CssClass = "pagination",
+                            CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+                            DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+                            PagerItemTemplate = "<li>{0}</li>", Id = "bootstrappager",
+                            RouteValues=new RouteValueDictionary { { "beginTime",ViewBag.beginTime }, { "endTime",ViewBag.endTime},
+                                { "shaftSelect",ViewBag.ShaftSelect},{ "engSelect",ViewBag.EngSelect},{ "sectionSelect",ViewBag.SectionSelect} }
+                        })*@
+                    @Ajax.Pager(Model, new PagerOptions
+               {
+                   PageIndexParameterName = "pageIndex",
+                   ContainerTagName = "ul",
+                   CssClass = "pagination",
+                   CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+                   DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+                   PagerItemTemplate = "<li>{0}</li>",
+                   Id = "bootstrappager",
+                   //RouteValues = new RouteValueDictionary { { "beginTime",ViewBag.beginTime }, { "endTime",ViewBag.endTime},
+                   //{ "shaftSelect",ViewBag.ShaftSelect},{ "engSelect",ViewBag.EngSelect},{ "sectionSelect",ViewBag.SectionSelect} }
+               }, new MvcAjaxOptions { UpdateTargetId ="tableData", DataFormId = "search",LoadingElementId="loading" });@*.AjaxOptions(a => a.SetUpdateTargetId("tableData"));*@
+        </nav>
+    </td>
+</tr>
+</tfoot>
+</table>
